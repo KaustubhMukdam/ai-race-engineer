@@ -1,0 +1,24 @@
+2025-12-28 14:03:02 | [32mINFO[0m | [94m__main__[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2025-12-28 14:03:02 | [32mINFO[0m | [94m__main__[0m | load_session:69 | Loading 2024 Abu Dhabi Race
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | load_session:80 | Session loaded in 66.62s
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | load_session:81 | Session date: 2024-12-08 13:00:00
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | load_session:82 | Circuit: Abu Dhabi Grand Prix
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | get_lap_times:136 | Extracting lap times
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | get_lap_times:146 | Extracted 1035 laps from 20 drivers
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | export_session_data:224 | Exported lap times to data\processed\2024_Abu_Dhabi_Grand_Prix_Race\lap_times.csv
+2025-12-28 14:04:08 | [32mINFO[0m | [94m__main__[0m | get_tire_strategy:164 | Extracting tire strategies
+2025-12-28 14:04:09 | [32mINFO[0m | [94m__main__[0m | get_tire_strategy:187 | Extracted strategies for 20 drivers
+2025-12-28 14:04:09 | [32mINFO[0m | [94m__main__[0m | export_session_data:233 | Exported tire strategies to data\processed\2024_Abu_Dhabi_Grand_Prix_Race\tire_strategies.json
+2025-12-28 14:04:09 | [32mINFO[0m | [94m__main__[0m | export_session_data:240 | Exported weather data to data\processed\2024_Abu_Dhabi_Grand_Prix_Race\weather.csv
+2025-12-28 14:04:09 | [32mINFO[0m | [94m__main__[0m | export_session_data:242 | All session data exported to data\processed\2024_Abu_Dhabi_Grand_Prix_Race
+2025-12-28 14:04:09 | [32mINFO[0m | [94m__main__[0m | get_driver_telemetry:111 | Extracting telemetry for VER, Lap 1
+2025-12-28 14:04:10 | [32mINFO[0m | [94m__main__[0m | get_driver_telemetry:118 | Telemetry shape: (762, 18)
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | main:297 | Loading data from data\processed\2024_Abu_Dhabi_Grand_Prix_Race
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | load_session_data:37 | Loaded 1035 laps
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | load_session_data:44 | Loaded strategies for 20 drivers
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | load_session_data:50 | Loaded 148 weather records
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | process_lap_data:103 | Processed 1003 laps with 14 features
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | merge_weather_data:132 | Merged weather data with lap data
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | calculate_tire_degradation:200 | Calculated degradation for 42 stints
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | identify_optimal_pit_windows:245 | Identified pit windows: {'MEDIUM': [7, 13], 'HARD': [21, 27]}
+2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | export_processed_data:282 | Exported processed data to data\processed\2024_Abu_Dhabi_GP_processed
