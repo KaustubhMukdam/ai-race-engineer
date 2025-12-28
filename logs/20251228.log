@@ -75,3 +75,34 @@ llm_model
 2025-12-28 16:36:07 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
 2025-12-28 16:36:07 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
 2025-12-28 16:36:17 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
+2025-12-28 16:39:31 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:39:32 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:39:32 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:39:32 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:39:32 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 16:39:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:85 | Generating strategy for VER on lap 25
+2025-12-28 16:39:40 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:39:42 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 598, Completion: 311, Total: 909
+2025-12-28 16:43:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:85 | Generating strategy for LEC on lap 20
+2025-12-28 16:43:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:43:22 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 607, Completion: 420, Total: 1027
+2025-12-28 16:53:45 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
+2025-12-28 16:53:48 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:53:48 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:53:48 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:53:48 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:53:48 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 16:58:46 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
+2025-12-28 16:58:59 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:58:59 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:58:59 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:58:59 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:58:59 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 17:21:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:85 | Generating strategy for LEC on lap 25
+2025-12-28 17:21:05 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 17:21:07 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 607, Completion: 407, Total: 1014
+2025-12-28 17:22:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 17:22:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 402, Completion: 146, Total: 548
+2025-12-28 17:35:25 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 17:35:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 300, Completion: 528, Total: 828
+2025-12-28 17:38:49 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
