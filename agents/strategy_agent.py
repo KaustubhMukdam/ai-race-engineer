@@ -31,7 +31,7 @@ class StrategyAgent(BaseAgent):
     def __init__(self):
         super().__init__(
             name="StrategyAgent",
-            model=settings.groq_primary_model,  # Use reasoning model
+            model=settings.groq_primary_model,
             temperature=0.7
         )
         self.degradation_df = None
@@ -127,7 +127,7 @@ class StrategyAgent(BaseAgent):
                 "driver": driver,
                 "current_lap": current_lap,
                 "recommendation": response,
-                "model_used": self.model
+                "llm_model": self.model
             }
             
         except Exception as e:
@@ -154,7 +154,7 @@ class StrategyAgent(BaseAgent):
             response = self.call_llm(
                 system_prompt=SYSTEM_PROMPT,
                 user_prompt=user_prompt,
-                temperature=0.5  # Lower temp for factual explanation
+                temperature=0.5
             )
             
             return response
@@ -230,7 +230,7 @@ def main():
     print("="*80)
     
     # Test 1: Pit strategy for Verstappen on lap 20
-    print("\n🏁 TEST 1: Verstappen Strategy - Lap 20")
+    print("\nTEST 1: Verstappen Strategy - Lap 20")
     print("-"*80)
     result = agent.recommend_pit_strategy(
         driver="VER",
@@ -245,18 +245,19 @@ def main():
     
     if result['status'] == 'success':
         print(result['recommendation'])
+        print(f"\nModel used: {result['llm_model']}")
     else:
-        print(f"❌ ERROR: {result.get('message', 'Unknown error')}")
+        print(f"ERROR: {result.get('message', 'Unknown error')}")
         return
     
     # Test 2: Explain Verstappen's MEDIUM tire degradation
-    print("\n\n🔍 TEST 2: Explain Verstappen's MEDIUM Tire Degradation")
+    print("\n\nTEST 2: Explain Verstappen's MEDIUM Tire Degradation")
     print("-"*80)
     explanation = agent.explain_tire_degradation(driver="VER", stint=1)
     print(explanation)
     
     # Test 3: Undercut analysis
-    print("\n\n⚡ TEST 3: Undercut Analysis - Verstappen vs Norris")
+    print("\n\nTEST 3: Undercut Analysis - Verstappen vs Norris")
     print("-"*80)
     undercut = agent.analyze_undercut(
         driver="VER",
@@ -268,10 +269,9 @@ def main():
     print(undercut)
     
     print("\n" + "="*80)
-    print("✅ Strategy Agent test complete!")
+    print("Strategy Agent test complete!")
     print("="*80)
 
 
 if __name__ == "__main__":
     main()
-

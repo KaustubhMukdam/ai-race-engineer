@@ -37,3 +37,41 @@
 2025-12-28 16:09:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 400, Completion: 153, Total: 553
 2025-12-28 16:09:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
 2025-12-28 16:10:01 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 470, Total: 769
+2025-12-28 16:24:14 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:24:14 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:24:14 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:26:10 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:26:10 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:26:10 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:31:05 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:31:05 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:31:05 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:31:05 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:31:05 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 16:31:07 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
+2025-12-28 16:31:16 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:31:17 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:31:17 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:31:17 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:31:17 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 16:32:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:85 | Generating strategy for VER on lap 25
+2025-12-28 16:32:40 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:32:42 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 598, Completion: 401, Total: 999
+2025-12-28 16:32:42 | [31mERROR[0m | [94mbackend.routes.strategy[0m | recommend_pit_strategy:99 | Error in recommend_pit_strategy: 1 validation error for PitStrategyResponse
+llm_model
+  Field required [type=missing, input_value={'status': 'success', 'dr...lama-3.3-70b-versatile'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2025-12-28 16:36:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:85 | Generating strategy for VER on lap 25
+2025-12-28 16:36:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:36:04 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 598, Completion: 319, Total: 917
+2025-12-28 16:36:04 | [31mERROR[0m | [94mbackend.routes.strategy[0m | recommend_pit_strategy:99 | Error in recommend_pit_strategy: 1 validation error for PitStrategyResponse
+llm_model
+  Field required [type=missing, input_value={'status': 'success', 'dr...lama-3.3-70b-versatile'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.9/v/missing
+2025-12-28 16:36:04 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
+2025-12-28 16:36:07 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-28 16:36:07 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:36:07 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:36:07 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-28 16:36:07 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-28 16:36:17 | [32mINFO[0m | [94mapp[0m | lifespan:37 | Shutting down AI Race Engineer API...
