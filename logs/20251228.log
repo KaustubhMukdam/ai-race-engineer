@@ -22,3 +22,18 @@
 2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | calculate_tire_degradation:200 | Calculated degradation for 42 stints
 2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | identify_optimal_pit_windows:245 | Identified pit windows: {'MEDIUM': [7, 13], 'HARD': [21, 27]}
 2025-12-28 14:18:44 | [32mINFO[0m | [94m__main__[0m | export_processed_data:282 | Exported processed data to data\processed\2024_Abu_Dhabi_GP_processed
+2025-12-28 15:16:55 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model deepseek-r1-distill-llama-70b
+2025-12-28 15:16:55 | [32mINFO[0m | [94m__main__[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 15:16:55 | [32mINFO[0m | [94m__main__[0m | recommend_pit_strategy:85 | Generating strategy for VER on lap 20
+2025-12-28 15:16:55 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with deepseek-r1-distill-llama-70b
+2025-12-28 15:16:55 | [31mERROR[0m | [94magents.base_agent[0m | call_llm:91 | Error calling Groq API: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-llama-70b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+2025-12-28 15:16:55 | [31mERROR[0m | [94m__main__[0m | recommend_pit_strategy:134 | Error generating strategy recommendation: Error code: 400 - {'error': {'message': 'The model `deepseek-r1-distill-llama-70b` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.', 'type': 'invalid_request_error', 'code': 'model_decommissioned'}}
+2025-12-28 16:09:29 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-28 16:09:29 | [32mINFO[0m | [94m__main__[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-28 16:09:29 | [32mINFO[0m | [94m__main__[0m | recommend_pit_strategy:85 | Generating strategy for VER on lap 20
+2025-12-28 16:09:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:09:57 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 604, Completion: 380, Total: 984
+2025-12-28 16:09:57 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:09:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 400, Completion: 153, Total: 553
+2025-12-28 16:09:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-28 16:10:01 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 470, Total: 769

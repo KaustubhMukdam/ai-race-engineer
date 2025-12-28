@@ -21,11 +21,19 @@ class Settings(BaseSettings):
     # Logging
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     
-    # Groq Model Configuration
-    groq_primary_model: str = "llama-3.3-70b-versatile"
-    groq_reasoning_model: str = "deepseek-r1-distill-llama-70b"
+    # Groq Model Configuration (Updated Dec 2025)
+    # PRIMARY MODELS (Production-ready)
+    groq_primary_model: str = "llama-3.3-70b-versatile"        # Main reasoning & strategy
+    groq_fast_model: str = "llama-3.3-70b-specdec"             # Fast real-time responses
+    groq_vision_model: str = "llama-3.2-90b-vision-preview"    # If we add telemetry charts
+    
+    # ALTERNATIVE MODELS
+    groq_reasoning_model: str = "llama-3.3-70b-versatile"      # Complex multi-step reasoning
+    groq_commentary_model: str = "llama-3.1-8b-instant"        # Fast commentary/chat
+    
+    # MODEL PARAMETERS
     groq_temperature: float = 0.7
-    groq_max_tokens: int = 4096
+    groq_max_tokens: int = 8192  # Updated to match model limits
     
     # FastAPI Configuration
     api_host: str = "0.0.0.0"
