@@ -351,3 +351,47 @@
 2025-12-29 20:05:46 | [32mINFO[0m | [94mapp[0m | lifespan:35 | Verstappen simulator loaded successfully
 2025-12-29 20:05:46 | [32mINFO[0m | [94mapp[0m | lifespan:36 | All components loaded successfully
 2025-12-29 20:06:26 | [32mINFO[0m | [94mapp[0m | lifespan:43 | Shutting down AI Race Engineer API...
+2025-12-29 22:28:40 | [32mINFO[0m | [94m__main__[0m | main:349 | Loaded 1003 laps from 2024_Abu_Dhabi_Grand_Prix_Race
+2025-12-29 22:34:35 | [32mINFO[0m | [94m__main__[0m | main:349 | Loaded 1003 laps from 2024_Abu_Dhabi_Grand_Prix_Race
+2025-12-29 22:34:35 | [32mINFO[0m | [94m__main__[0m | __init__:108 | Using device: cpu
+2025-12-29 22:34:35 | [32mINFO[0m | [94m__main__[0m | train:190 | Preparing training data...
+2025-12-29 22:34:35 | [32mINFO[0m | [94m__main__[0m | train:193 | Created 636 sequences of length 10
+2025-12-29 22:40:08 | [32mINFO[0m | [94m__main__[0m | main:356 | Loaded 1003 laps from 2024_Abu_Dhabi_Grand_Prix_Race
+2025-12-29 22:40:08 | [32mINFO[0m | [94m__main__[0m | __init__:108 | Using device: cpu
+2025-12-29 22:40:08 | [32mINFO[0m | [94m__main__[0m | train:190 | Preparing training data...
+2025-12-29 22:40:08 | [32mINFO[0m | [94m__main__[0m | train:193 | Created 636 sequences of length 10
+2025-12-29 22:40:09 | [32mINFO[0m | [94m__main__[0m | train:223 | Starting training...
+2025-12-29 22:40:09 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:09 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:09 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:10 | [32mINFO[0m | [94m__main__[0m | train:276 | Epoch 10/50 - Train Loss: 1636.7578, Val Loss: 1248.2522
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:11 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | train:276 | Epoch 20/50 - Train Loss: 121.4542, Val Loss: 7.7718
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:12 | [32mINFO[0m | [94m__main__[0m | save_model:319 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-29 22:40:13 | [32mINFO[0m | [94m__main__[0m | train:266 | Learning rate reduced: 0.001 -> 0.0005
+2025-12-29 22:40:13 | [32mINFO[0m | [94m__main__[0m | train:276 | Epoch 30/50 - Train Loss: 147.3093, Val Loss: 7.5614
+2025-12-29 22:40:14 | [32mINFO[0m | [94m__main__[0m | train:266 | Learning rate reduced: 0.0005 -> 0.00025
+2025-12-29 22:40:14 | [32mINFO[0m | [94m__main__[0m | train:276 | Epoch 40/50 - Train Loss: 131.6584, Val Loss: 7.5071
+2025-12-29 22:40:15 | [32mINFO[0m | [94m__main__[0m | train:266 | Learning rate reduced: 0.00025 -> 0.000125
+2025-12-29 22:40:15 | [32mINFO[0m | [94m__main__[0m | train:266 | Learning rate reduced: 0.000125 -> 6.25e-05
+2025-12-29 22:40:16 | [32mINFO[0m | [94m__main__[0m | train:276 | Epoch 50/50 - Train Loss: 137.8475, Val Loss: 6.9410
+2025-12-29 22:40:16 | [32mINFO[0m | [94m__main__[0m | train:278 | Training complete! Best validation loss: 6.5433
+2025-12-29 22:40:17 | [32mINFO[0m | [94m__main__[0m | main:383 | Training history saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\training_history.png

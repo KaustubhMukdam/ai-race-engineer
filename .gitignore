@@ -4,3 +4,4 @@ docs
 .env
 data/processed
 data/raw/fastf1_cache
+ml/saved_models

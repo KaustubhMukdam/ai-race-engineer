@@ -3,6 +3,7 @@ Application Configuration Management
 Handles all environment variables and settings
 """
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import Field
 from pathlib import Path
 from typing import Literal
 
@@ -14,9 +15,10 @@ class Settings(BaseSettings):
     groq_api_key: str
     
     # Data Configuration
-    fastf1_cache_dir: Path = Path("./data/raw/fastf1_cache")
-    processed_data_dir: Path = Path("./data/processed")
-    datasets_dir: Path = Path("./data/datasets")
+    base_dir: Path = Field(default_factory=lambda: Path(__file__).resolve().parent.parent)
+    fastf1_cache_dir: Path = Field(default_factory=lambda: Path(__file__).resolve().parent.parent / "data" / "raw" / "fastf1_cache")
+    processed_data_dir: Path = Field(default_factory=lambda: Path(__file__).resolve().parent.parent / "data" / "processed")
+    datasets_dir: Path = Field(default_factory=lambda: Path(__file__).resolve().parent.parent / "data" / "datasets")
     
     # Logging
     log_level: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
@@ -52,6 +54,10 @@ class Settings(BaseSettings):
         self.fastf1_cache_dir.mkdir(parents=True, exist_ok=True)
         self.processed_data_dir.mkdir(parents=True, exist_ok=True)
         self.datasets_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Also create ML directories
+        ml_dir = self.base_dir / "ml" / "saved_models"
+        ml_dir.mkdir(parents=True, exist_ok=True)
 
 
 # Global settings instance
