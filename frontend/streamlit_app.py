@@ -231,12 +231,13 @@ race_context = st.sidebar.text_area(
 )
 
 # Main content tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs([
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🎯 Pit Strategy",
     "📈 Tire Degradation",
     "⚡ Undercut Analysis",
     "📊 Multi-Driver Comparison",
-    "🗂️ Session Manager"
+    "🗂️ Session Manager",
+    "🏎️ Verstappen Simulator"
 ])
 
 # Tab 1: Pit Strategy Recommendation
@@ -568,6 +569,301 @@ with tab5:
                 st.info("No cached sessions yet. Load a session to get started!")
     except Exception as e:
         st.error(f"Error loading cached sessions: {str(e)}")
+
+# Tab 6: Verstappen Style Simulator
+with tab6:
+    st.header("🏎️ Verstappen Style Simulator")
+    st.markdown("""
+    Compare aggressive (Verstappen-style) vs conservative driving strategies and their impact on tire management and race strategy.
+    """)
+    
+    if st.session_state.session_data is None:
+        st.info("📥 Load a session first to use the Verstappen Simulator")
+        st.stop()
+    
+    # Driver selection
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("🔴 Driver A")
+        aggressive_driver = st.selectbox(
+            "Select first driver",
+            st.session_state.available_drivers,
+            index=st.session_state.available_drivers.index("VER") if "VER" in st.session_state.available_drivers else 0,
+            key="aggressive_driver"
+        )
+    
+    with col2:
+        st.subheader("🔵 Driver B")
+        conservative_options = [d for d in st.session_state.available_drivers if d != aggressive_driver]
+        conservative_driver = st.selectbox(
+            "Select second driver (or auto-detect most conservative)",
+            ["Auto-detect (most conservative)"] + conservative_options,
+            key="conservative_driver"
+        )
+    
+    # Simulate button
+    if st.button("⚙️ Run Driving Style Analysis", type="primary", use_container_width=True):
+        with st.spinner("Analyzing driving styles and strategic implications..."):
+            try:
+                # Import simulator
+                from agents.verstappen_simulator import VerstappenStyleSimulator
+                from config.app_config import settings
+                
+                # Initialize simulator
+                simulator = VerstappenStyleSimulator()
+                
+                # Load data
+                session_key = st.session_state.current_session['session_key']
+                processed_path = settings.processed_data_dir / f"{session_key}_processed"
+                
+                deg_file = processed_path / "tire_degradation_analysis.csv"
+                laps_file = processed_path / "processed_laps.csv"
+                
+                simulator.load_race_data(deg_file, laps_file)
+                
+                # Run comparison
+                baseline = None if conservative_driver == "Auto-detect (most conservative)" else conservative_driver
+                
+                comparison = simulator.compare_verstappen_vs_baseline(
+                    verstappen_driver=aggressive_driver,
+                    baseline_driver=baseline
+                )
+                
+                if comparison['status'] == 'success':
+                    # Store in session state
+                    st.session_state.verstappen_comparison = comparison
+                    
+                    # Generate AI analysis
+                    with st.spinner("Generating AI race engineer analysis..."):
+                        analysis = simulator.generate_llm_analysis(comparison)
+                        st.session_state.verstappen_analysis = analysis
+                    
+                    st.success("✅ Analysis complete!")
+                else:
+                    st.error(f"Error: {comparison['message']}")
+                    st.stop()
+                    
+            except Exception as e:
+                st.error(f"Simulation failed: {str(e)}")
+                st.code(str(e))
+                st.stop()
+    
+    # Display results if available
+    if 'verstappen_comparison' in st.session_state and st.session_state.verstappen_comparison:
+        comparison = st.session_state.verstappen_comparison
+        
+        st.markdown("---")
+        st.markdown("## 📊 Driving Style Comparison")
+        
+        # Calculate differences for interpretation
+        pace_diff = comparison['differences']['pace_diff']
+        deg_diff = comparison['differences']['degradation_diff']
+        
+        # Interpretation box BEFORE metrics
+        st.markdown("### 🎯 Quick Interpretation")
+        
+        if pace_diff < -0.3 and deg_diff > 0.015:
+            interpretation = f"""
+            **{comparison['verstappen']['driver']}** is driving **AGGRESSIVELY** 🔥:
+            - ✅ **{abs(pace_diff):.3f}s/lap faster** than {comparison['baseline']['driver']}
+            - ⚠️ But wearing tires **{deg_diff:.4f}s/lap harder**
+            - **Strategy**: Speed comes at the cost of tire life → Must pit more often but gains time through pace
+            """
+            st.success(interpretation)
+        elif pace_diff < -0.3 and deg_diff <= 0.015:
+            interpretation = f"""
+            **{comparison['verstappen']['driver']}** has the **OPTIMAL STYLE** ⚡:
+            - ✅ **{abs(pace_diff):.3f}s/lap faster** 
+            - ✅ **AND** similar or better tire management (degradation diff: {deg_diff:.4f}s/lap)
+            - **Strategy**: Best of both worlds → Can extend stints AND maintain pace advantage
+            """
+            st.success(interpretation)
+        elif pace_diff > 0.3 and deg_diff < -0.015:
+            interpretation = f"""
+            **{comparison['baseline']['driver']}** is driving **CONSERVATIVELY** 🛡️:
+            - 📉 **{pace_diff:.3f}s/lap slower** than {comparison['verstappen']['driver']}
+            - ✅ But saving tires **{abs(deg_diff):.4f}s/lap**
+            - **Strategy**: Playing the long game → Longer stints, fewer pit stops, banking on strategy
+            """
+            st.info(interpretation)
+        elif pace_diff > 0 and deg_diff > 0:
+            interpretation = f"""
+            **{comparison['verstappen']['driver']}** is **STRUGGLING** ⚠️:
+            - ❌ **{pace_diff:.3f}s/lap slower**
+            - ❌ **AND** wearing tires **{deg_diff:.4f}s/lap harder**
+            - **Possible causes**: Traffic, damage, poor strategy, or sub-optimal tire compound
+            """
+            st.warning(interpretation)
+        else:
+            st.info(f"""
+            **Balanced comparison**: Both drivers showing similar performance characteristics.
+            - Pace difference: {pace_diff:.3f}s/lap
+            - Degradation difference: {deg_diff:.4f}s/lap
+            """)
+        
+        st.markdown("---")
+        
+        # Side-by-side metrics
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown(f"### 🔴 {comparison['verstappen']['driver']}")
+            
+            # Enhanced style display with emoji
+            ver_style_raw = comparison['verstappen']['style']
+            
+            # Add visual indicators based on performance
+            if pace_diff < -0.3 and deg_diff > 0.015:
+                style_icon = "🔥"
+                style_label = "Aggressive"
+            elif pace_diff < -0.3 and deg_diff <= 0.015:
+                style_icon = "⚡"
+                style_label = "Optimal"
+            elif pace_diff > 0.3 and deg_diff > 0:
+                style_icon = "⚠️"
+                style_label = "Struggling"
+            else:
+                style_icon = "🛡️"
+                style_label = "Conservative"
+            
+            st.markdown(f"**Style**: {style_icon} {style_label}")
+            
+            metrics_ver = comparison['verstappen']
+            st.metric("Average Pace", f"{metrics_ver['avg_pace']:.3f}s")
+            st.metric("Degradation Rate", f"{metrics_ver['avg_degradation']:.4f}s/lap")
+            st.metric("Pace Consistency", f"{metrics_ver['pace_consistency']:.3f}s")
+            st.metric("Avg Stint Length", f"{metrics_ver['avg_stint_length']:.1f} laps")
+            st.metric("New Tire Attack", f"{metrics_ver['new_tire_attack']:.3f}s")
+        
+        with col2:
+            st.markdown(f"### 🔵 {comparison['baseline']['driver']}")
+            
+            # Inverse style display for baseline
+            if pace_diff < -0.3 and deg_diff > 0.015:
+                baseline_icon = "🛡️"
+                baseline_label = "Conservative (Tire-saving)"
+            elif pace_diff < -0.3 and deg_diff <= 0.015:
+                baseline_icon = "📉"
+                baseline_label = "Sub-optimal"
+            elif pace_diff > 0.3 and deg_diff > 0:
+                baseline_icon = "⚡"
+                baseline_label = "Optimal"
+            else:
+                baseline_icon = "⚖️"
+                baseline_label = "Balanced"
+            
+            st.markdown(f"**Style**: {baseline_icon} {baseline_label}")
+            
+            metrics_base = comparison['baseline']
+            
+            # Show metrics with delta
+            pace_delta = metrics_ver['avg_pace'] - metrics_base['avg_pace']
+            st.metric("Average Pace", f"{metrics_base['avg_pace']:.3f}s", 
+                     delta=f"{pace_delta:.3f}s", delta_color="inverse")
+            
+            deg_delta = metrics_ver['avg_degradation'] - metrics_base['avg_degradation']
+            st.metric("Degradation Rate", f"{metrics_base['avg_degradation']:.4f}s/lap",
+                     delta=f"{deg_delta:.4f}s/lap", delta_color="inverse")
+            
+            consistency_delta = metrics_ver['pace_consistency'] - metrics_base['pace_consistency']
+            st.metric("Pace Consistency", f"{metrics_base['pace_consistency']:.3f}s",
+                     delta=f"{consistency_delta:.3f}s", delta_color="inverse")
+            
+            stint_delta = metrics_ver['avg_stint_length'] - metrics_base['avg_stint_length']
+            st.metric("Avg Stint Length", f"{metrics_base['avg_stint_length']:.1f} laps",
+                     delta=f"{stint_delta:.1f} laps")
+            
+            attack_delta = metrics_ver['new_tire_attack'] - metrics_base['new_tire_attack']
+            st.metric("New Tire Attack", f"{metrics_base['new_tire_attack']:.3f}s",
+                     delta=f"{attack_delta:.3f}s", delta_color="inverse")
+        
+        # Strategy Impact
+        st.markdown("---")
+        st.markdown("## 🎯 Strategic Impact Analysis")
+        
+        impact = comparison['strategy_impact']
+        
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.metric("Time Gained (Pace)", f"{impact['time_gained_from_pace']:.2f}s")
+        
+        with col2:
+            st.metric("Time Lost (Extra Pits)", f"{impact['time_lost_from_extra_pits']:.2f}s")
+        
+        with col3:
+            net_color = "🟢" if impact['net_race_advantage'] < 0 else "🔴"
+            st.metric("Net Advantage", f"{abs(impact['net_race_advantage']):.2f}s", 
+                     delta=f"{net_color} {impact['verdict']}")
+        
+        st.info(f"**Pit Timing Impact**: {impact['pit_timing_impact']}")
+        
+        # Visualization: Comparative bar charts
+        st.markdown("---")
+        st.markdown("## 📈 Visual Comparison")
+        
+        # Create comparison chart
+        categories = ['Avg Pace', 'Degradation', 'Consistency', 'Stint Length', 'New Tire Attack']
+        
+        aggressive_values = [
+            metrics_ver['avg_pace'],
+            metrics_ver['avg_degradation'] * 100,  # Scale up for visibility
+            metrics_ver['pace_consistency'],
+            metrics_ver['avg_stint_length'],
+            metrics_ver['new_tire_attack']
+        ]
+        
+        conservative_values = [
+            metrics_base['avg_pace'],
+            metrics_base['avg_degradation'] * 100,
+            metrics_base['pace_consistency'],
+            metrics_base['avg_stint_length'],
+            metrics_base['new_tire_attack']
+        ]
+        
+        fig = go.Figure(data=[
+            go.Bar(name=f'{comparison["verstappen"]["driver"]}', 
+                   x=categories, y=aggressive_values, marker_color='#e10600'),
+            go.Bar(name=f'{comparison["baseline"]["driver"]}', 
+                   x=categories, y=conservative_values, marker_color='#0066cc')
+        ])
+        
+        fig.update_layout(
+            title="Driving Style Metrics Comparison",
+            xaxis_title="Metric",
+            yaxis_title="Value",
+            barmode='group',
+            height=400
+        )
+        
+        st.plotly_chart(fig, use_container_width=True)
+        
+        # AI Analysis
+        if 'verstappen_analysis' in st.session_state and st.session_state.verstappen_analysis:
+            st.markdown("---")
+            st.markdown("## 🤖 AI Race Engineer Analysis")
+            
+            st.markdown(
+                f'<div class="recommendation-box">{st.session_state.verstappen_analysis}</div>',
+                unsafe_allow_html=True
+            )
+        
+        # Export data
+        st.markdown("---")
+        st.subheader("💾 Export Analysis")
+        
+        export_data = {
+            'comparison': comparison,
+            'session': st.session_state.current_session['session_key']
+        }
+        
+        st.download_button(
+            "⬇️ Download JSON",
+            json.dumps(export_data, indent=2),
+            file_name=f"style_analysis_{comparison['verstappen']['driver']}_vs_{comparison['baseline']['driver']}.json",
+            mime="application/json"
+        )
 
 # Footer
 st.markdown("---")

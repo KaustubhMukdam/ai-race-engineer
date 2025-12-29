@@ -266,3 +266,88 @@
 2025-12-29 18:05:50 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
 2025-12-29 18:06:55 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2024
 2025-12-29 18:06:55 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
+2025-12-29 18:20:14 | [32mINFO[0m | [94mapp[0m | lifespan:41 | Shutting down AI Race Engineer API...
+2025-12-29 18:20:18 | [32mINFO[0m | [94mapp[0m | lifespan:28 | Starting AI Race Engineer API...
+2025-12-29 18:20:18 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-29 18:20:18 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-29 18:20:18 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-29 18:20:18 | [32mINFO[0m | [94mapp[0m | lifespan:31 | Strategy agent loaded successfully
+2025-12-29 18:20:18 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2025-12-29 18:20:18 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2025-12-29 18:20:18 | [32mINFO[0m | [94mapp[0m | lifespan:34 | Session manager loaded successfully
+2025-12-29 18:21:28 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2025-12-29 18:21:28 | [32mINFO[0m | [94m__main__[0m | load_race_data:41 | Loaded race data: 42 stints, 1003 laps
+2025-12-29 18:21:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | VerstappenSimulator calling Groq API with llama-3.3-70b-versatile
+2025-12-29 18:21:31 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 557, Completion: 867, Total: 1424
+2025-12-29 18:25:16 | [32mINFO[0m | [94mapp[0m | lifespan:41 | Shutting down AI Race Engineer API...
+2025-12-29 18:25:19 | [32mINFO[0m | [94mapp[0m | lifespan:28 | Starting AI Race Engineer API...
+2025-12-29 18:25:19 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-29 18:25:19 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-29 18:25:19 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-29 18:25:19 | [32mINFO[0m | [94mapp[0m | lifespan:31 | Strategy agent loaded successfully
+2025-12-29 18:25:19 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2025-12-29 18:25:19 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2025-12-29 18:25:19 | [32mINFO[0m | [94mapp[0m | lifespan:34 | Session manager loaded successfully
+2025-12-29 19:41:19 | [32mINFO[0m | [94mapp[0m | lifespan:41 | Shutting down AI Race Engineer API...
+2025-12-29 19:45:09 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-29 19:45:09 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-29 19:45:09 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-29 19:45:09 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-29 19:45:09 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-29 19:45:09 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2025-12-29 19:45:09 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2025-12-29 19:45:09 | [32mINFO[0m | [94mapp[0m | lifespan:33 | Session manager loaded successfully
+2025-12-29 19:45:10 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2025-12-29 19:45:10 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2025-12-29 19:45:10 | [32mINFO[0m | [94mapp[0m | lifespan:35 | Verstappen simulator loaded successfully
+2025-12-29 19:45:10 | [32mINFO[0m | [94mapp[0m | lifespan:36 | All components loaded successfully
+2025-12-29 19:45:22 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2025
+2025-12-29 19:45:24 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2025 season
+2025-12-29 19:45:43 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2024
+2025-12-29 19:45:43 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
+2025-12-29 19:46:05 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2024
+2025-12-29 19:46:05 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
+2025-12-29 19:46:07 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2024 Japanese Grand Prix Race
+2025-12-29 19:46:07 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:120 | Loading fresh session: 2024_Japanese_Grand_Prix_Race
+2025-12-29 19:46:07 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:69 | Loading 2024 Japanese Grand Prix Race
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:80 | Session loaded in 88.64s
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:81 | Session date: 2024-04-07 05:00:00
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:82 | Circuit: Japanese Grand Prix
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_lap_times:136 | Extracting lap times
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_lap_times:146 | Extracted 907 laps from 20 drivers
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:224 | Exported lap times to data\processed\2024_Japanese_Grand_Prix_Race\lap_times.csv
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_tire_strategy:164 | Extracting tire strategies
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_tire_strategy:187 | Extracted strategies for 20 drivers
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:233 | Exported tire strategies to data\processed\2024_Japanese_Grand_Prix_Race\tire_strategies.json
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:240 | Exported weather data to data\processed\2024_Japanese_Grand_Prix_Race\weather.csv
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:242 | All session data exported to data\processed\2024_Japanese_Grand_Prix_Race
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:37 | Loaded 907 laps
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:44 | Loaded strategies for 20 drivers
+2025-12-29 19:47:36 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:50 | Loaded 181 weather records
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | process_lap_data:103 | Processed 846 laps with 14 features
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | merge_weather_data:132 | Merged weather data with lap data
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | calculate_tire_degradation:200 | Calculated degradation for 52 stints
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | identify_optimal_pit_windows:245 | Identified pit windows: {'MEDIUM': [15, 21], 'HARD': [20, 26], 'SOFT': [18, 24]}
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | export_processed_data:290 | All processed data exported to data\processed\2024_Japanese_Grand_Prix_Race_processed
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | _save_cache_index:45 | Cache index saved
+2025-12-29 19:47:37 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:169 | Session 2024_Japanese_Grand_Prix_Race processed and cached successfully
+2025-12-29 19:48:52 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2024
+2025-12-29 19:48:52 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
+2025-12-29 19:48:57 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2025-12-29 19:48:57 | [32mINFO[0m | [94magents.verstappen_simulator[0m | load_race_data:41 | Loaded race data: 52 stints, 846 laps
+2025-12-29 19:48:57 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | VerstappenSimulator calling Groq API with llama-3.3-70b-versatile
+2025-12-29 19:49:00 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 557, Completion: 771, Total: 1328
+2025-12-29 20:05:38 | [32mINFO[0m | [94mapp[0m | lifespan:43 | Shutting down AI Race Engineer API...
+2025-12-29 20:05:44 | [32mINFO[0m | [94mapp[0m | lifespan:27 | Starting AI Race Engineer API...
+2025-12-29 20:05:45 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-29 20:05:45 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:46 | Loaded race data: 42 stints
+2025-12-29 20:05:45 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:56 | Strategy agent initialized successfully
+2025-12-29 20:05:45 | [32mINFO[0m | [94mapp[0m | lifespan:30 | Strategy agent loaded successfully
+2025-12-29 20:05:45 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2025-12-29 20:05:45 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2025-12-29 20:05:45 | [32mINFO[0m | [94mapp[0m | lifespan:33 | Session manager loaded successfully
+2025-12-29 20:05:46 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2025-12-29 20:05:46 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2025-12-29 20:05:46 | [32mINFO[0m | [94mapp[0m | lifespan:35 | Verstappen simulator loaded successfully
+2025-12-29 20:05:46 | [32mINFO[0m | [94mapp[0m | lifespan:36 | All components loaded successfully
+2025-12-29 20:06:26 | [32mINFO[0m | [94mapp[0m | lifespan:43 | Shutting down AI Race Engineer API...

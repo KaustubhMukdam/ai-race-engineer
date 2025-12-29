@@ -12,11 +12,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from backend.routes import strategy
+from backend.routes import strategy, sessions, verstappen
 from backend.schemas.strategy_schema import HealthCheckResponse
 from config.app_config import settings
 from utils.logger import setup_logger
-from backend.routes import sessions
 
 logger = setup_logger(__name__)
 
@@ -32,6 +31,9 @@ async def lifespan(app: FastAPI):
 
         sessions.initialize_session_manager()
         logger.info("Session manager loaded successfully")
+        verstappen.initialize_simulator()
+        logger.info("Verstappen simulator loaded successfully")
+        logger.info("All components loaded successfully")
     except Exception as e:
         logger.error(f"Failed to load strategy agent: {e}")
     
@@ -61,6 +63,7 @@ app.add_middleware(
 # Include routers
 app.include_router(strategy.router)
 app.include_router(sessions.router)
+app.include_router(verstappen.router)
 
 
 @app.get("/", tags=["Root"])

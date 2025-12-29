@@ -90,7 +90,7 @@ Their degradation: {their_deg} s/lap
 Can we undercut? Explain the math and strategic timing."""
 
 
-VERSTAPPEN_STYLE_ANALYSIS_PROMPT = """Analyze how Max Verstappen's aggressive driving style affects tire strategy:
+VERSTAPPEN_STYLE_ANALYSIS_PROMPT = """Analyze how Max Verstappen's aggressive driving style affects tire strategy compared to a conservative baseline driver:
 
 **VERSTAPPEN'S DATA**:
 {verstappen_data}
@@ -98,10 +98,25 @@ VERSTAPPEN_STYLE_ANALYSIS_PROMPT = """Analyze how Max Verstappen's aggressive dr
 **BASELINE (CONSERVATIVE) DRIVER DATA**:
 {baseline_data}
 
-Compare:
-1. Degradation rates (aggressive vs conservative)
-2. Optimal pit timing differences
-3. Strategic advantages/disadvantages
-4. Risk factors for each style
+Provide a comprehensive analysis covering:
 
-Explain the tradeoffs in race engineer language."""
+1. **Driving Style Comparison**:
+   - Quantify the aggressiveness difference
+   - What does this mean in practical terms?
+
+2. **Degradation Impact**:
+   - Why does Verstappen's style cause more/less tire wear?
+   - Which compound benefits most from each style?
+
+3. **Strategic Implications**:
+   - Optimal pit timing for each style
+   - Race scenarios where each style wins
+   - Advantages and disadvantages of aggressive approach
+
+4. **Tactical Recommendations**:
+   - When should a driver adopt aggressive style?
+   - When to be conservative?
+   - How does this affect race strategy decisions?
+
+Use F1 engineering terminology. Be specific with numbers. Explain the physics and strategy tradeoffs."""
+
