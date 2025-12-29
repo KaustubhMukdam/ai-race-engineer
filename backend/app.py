@@ -16,6 +16,7 @@ from backend.routes import strategy
 from backend.schemas.strategy_schema import HealthCheckResponse
 from config.app_config import settings
 from utils.logger import setup_logger
+from backend.routes import sessions
 
 logger = setup_logger(__name__)
 
@@ -28,6 +29,9 @@ async def lifespan(app: FastAPI):
     try:
         strategy.initialize_agent()
         logger.info("Strategy agent loaded successfully")
+
+        sessions.initialize_session_manager()
+        logger.info("Session manager loaded successfully")
     except Exception as e:
         logger.error(f"Failed to load strategy agent: {e}")
     
@@ -56,6 +60,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(strategy.router)
+app.include_router(sessions.router)
 
 
 @app.get("/", tags=["Root"])

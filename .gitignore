@@ -2,3 +2,6 @@ venv
 __pycache__
 docs
 .env
+data/raw
+data/processed
+fasf1_http_cache.sqlite

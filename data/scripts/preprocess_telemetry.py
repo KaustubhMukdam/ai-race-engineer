@@ -258,7 +258,12 @@ class TelemetryPreprocessor:
     ) -> Dict[str, Path]:
         """Export all processed data"""
         try:
-            output_dir = self.processed_dir / f"{session_name}_processed"
+            # Create directory with _processed suffix if not already included
+            if not session_name.endswith('_processed'):
+                output_dir = self.processed_dir / f"{session_name}_processed"
+            else:
+                output_dir = self.processed_dir / session_name
+                
             output_dir.mkdir(parents=True, exist_ok=True)
             
             exported = {}
@@ -267,25 +272,27 @@ class TelemetryPreprocessor:
             laps_file = output_dir / "processed_laps.csv"
             laps_df.to_csv(laps_file, index=False)
             exported['laps'] = laps_file
+            logger.info(f"✅ Exported processed laps to {laps_file}")
             
             # Export degradation analysis
             deg_file = output_dir / "tire_degradation_analysis.csv"
             degradation_df.to_csv(deg_file, index=False)
             exported['degradation'] = deg_file
+            logger.info(f"✅ Exported degradation analysis to {deg_file}")
             
             # Export pit windows
             pit_file = output_dir / "optimal_pit_windows.json"
             with open(pit_file, 'w') as f:
                 json.dump(pit_windows, f, indent=2)
             exported['pit_windows'] = pit_file
+            logger.info(f"✅ Exported pit windows to {pit_file}")
             
-            logger.info(f"Exported processed data to {output_dir}")
+            logger.info(f"All processed data exported to {output_dir}")
             return exported
             
         except Exception as e:
             logger.error(f"Error exporting processed data: {e}")
             raise
-
 
 def main():
     """Example usage"""
