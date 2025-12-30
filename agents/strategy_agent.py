@@ -17,10 +17,11 @@ from agents.prompts.strategy_prompts import (
     SYSTEM_PROMPT,
     STRATEGY_ANALYSIS_PROMPT,
     TIRE_DEGRADATION_EXPLANATION_PROMPT,
-    UNDERCUT_ANALYSIS_PROMPT
+    UNDERCUT_ANALYSIS_PROMPT, 
 )
 from config.app_config import settings
 from utils.logger import setup_logger
+from ml.models.lstm_interface import LSTMInferenceEngine
 
 logger = setup_logger(__name__)
 
@@ -36,6 +37,8 @@ class StrategyAgent(BaseAgent):
         )
         self.degradation_df = None
         self.pit_windows = None
+        self.lstm_engine = LSTMInferenceEngine()
+        self.use_lstm = self.lstm_engine.is_available()
     
     def load_race_data(self, degradation_csv: Path, pit_windows_json: Path):
         """Load preprocessed race data"""
@@ -63,7 +66,8 @@ class StrategyAgent(BaseAgent):
         tire_age: int,
         track_temp: float,
         air_temp: float,
-        race_context: str = "Normal race conditions"
+        race_context: str = "Normal race conditions",
+        race_name: str = "2024_Monaco"
     ) -> Dict[str, Any]:
         """
         Generate pit strategy recommendation
@@ -101,6 +105,46 @@ class StrategyAgent(BaseAgent):
                 f"- {compound}: Laps {window[0]}-{window[1]}"
                 for compound, window in self.pit_windows.items()
             ])
+
+            # Get recent laps for LSTM prediction
+            recent_laps = self._get_recent_laps(driver, current_lap)
+
+            logger.info(f"DEBUG: Found {len(recent_laps)} recent laps for {driver}")
+            logger.info(f"DEBUG: use_lstm={self.use_lstm}, recent_laps length check: {len(recent_laps) >= 10}")
+
+
+            lstm_summary = "LSTM model not available or insufficient data."
+            if self.use_lstm and len(recent_laps) >= 10:
+                baseline = recent_laps[-1]
+                stint_pred = self.lstm_engine.predict_stint_degradation(
+                    driver=driver,
+                    starting_lap=current_lap,
+                    stint_length=min(20, total_laps - current_lap),
+                    compound=current_compound,
+                    track_temp=track_temp,
+                    air_temp=air_temp,
+                    baseline_lap_time=baseline,
+                    race_name=race_name 
+                )
+                if stint_pred['status'] == 'success':
+                    lstm_summary = (
+                        f"LSTM predicts avg degradation {stint_pred['avg_degradation_per_lap']:.4f}s/lap "
+                        f"over next {stint_pred['stint_length']} laps, "
+                        f"total time loss {stint_pred['total_time_loss']:.3f}s vs baseline {baseline:.3f}s."
+                    )
+            
+                logger.info(f"DEBUG: LSTM prediction status: {stint_pred.get('status')}")
+    
+                if stint_pred["status"] == "success":
+                    lstm_summary = (
+                        f"LSTM predicts avg degradation {stint_pred['avg_degradation_per_lap']:.4f}s/lap "
+                        f"over next {stint_pred['stint_length']} laps, "
+                        f"total time loss {stint_pred['total_time_loss']:.3f}s vs baseline {baseline:.3f}s."
+                    )
+                    logger.info(f"DEBUG: LSTM summary: {lstm_summary}")
+
+                logger.info(f"DEBUG: Final lstm_summary being sent to LLM: {lstm_summary}")
+            
             
             # Build prompt
             user_prompt = STRATEGY_ANALYSIS_PROMPT.format(
@@ -113,7 +157,8 @@ class StrategyAgent(BaseAgent):
                 pit_windows=pit_windows_str,
                 track_temp=track_temp,
                 air_temp=air_temp,
-                race_context=race_context
+                race_context=race_context,
+                lstm_summary=lstm_summary
             )
             
             # Get LLM response
@@ -127,6 +172,7 @@ class StrategyAgent(BaseAgent):
                 "driver": driver,
                 "current_lap": current_lap,
                 "recommendation": response,
+                "lstm_used": self.use_lstm,
                 "llm_model": self.model
             }
             
@@ -213,16 +259,35 @@ class StrategyAgent(BaseAgent):
             return {"analysis": self.analyze_undercut(**input_data.get('params', {}))}
         else:
             return {"status": "error", "message": f"Unknown action: {action}"}
+        
+    def _get_recent_laps(self, driver: str, current_lap: int) -> list[float]:
+        """Get recent lap times for a driver up to current_lap."""
+        if self.degradation_df is None:
+            return []
+        # Use the same laps_df you already load for strategy; if not stored, reload:
+        try:
+            from config.app_config import settings
+            session_key = self.pit_windows.get('session_key', None)
+        except Exception:
+            session_key = None
 
+        if session_key:
+            laps_file = settings.processed_data_dir / f"{session_key}_processed" / "processed_laps.csv"
+            if laps_file.exists():
+                import pandas as pd
+                laps = pd.read_csv(laps_file)
+                dlaps = laps[(laps['Driver'] == driver) & (laps['LapNumber'] < current_lap)]
+                return dlaps.sort_values('LapNumber')['LapTime_Seconds'].tolist()
+        return []
 
 def main():
     """Test the Strategy Agent"""
     agent = StrategyAgent()
     
     # Load Abu Dhabi GP data
-    degradation_file = settings.processed_data_dir / "2024_Abu_Dhabi_GP_processed" / "tire_degradation_analysis.csv"
-    pit_windows_file = settings.processed_data_dir / "2024_Abu_Dhabi_GP_processed" / "optimal_pit_windows.json"
-    
+    degradation_file = settings.processed_data_dir / "2024_Abu_Dhabi_Grand_Prix_Race_processed" / "tire_degradation_analysis.csv"
+    pit_windows_file = settings.processed_data_dir / "2024_Abu_Dhabi_Grand_Prix_Race_processed" / "optimal_pit_windows.json"
+
     agent.load_race_data(degradation_file, pit_windows_file)
     
     print("\n" + "="*80)

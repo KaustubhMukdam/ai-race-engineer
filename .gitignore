@@ -5,3 +5,12 @@ docs
 data/processed
 data/raw/fastf1_cache
 ml/saved_models
+austria.py
+bahrain.py
+compare_strategies.py
+debug.py
+gp.py
+model_testing.py
+monaco.py
+test_lstm_strategy.py
+ml/datasets

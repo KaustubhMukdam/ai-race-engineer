@@ -96,44 +96,67 @@ class TireDegradationLSTM(nn.Module):
 
 
 class TireDegradationPredictor:
-    """Wrapper class for training and inference"""
+    """Wrapper class for training and inference - FIXED VERSION"""
     
     def __init__(self, model_path: Path = None):
         self.model = None
-        self.scaler = StandardScaler()
+        self.feature_scaler = StandardScaler()
+        self.target_scaler = StandardScaler()
         self.compound_encoder = LabelEncoder()
         self.driver_encoder = LabelEncoder()
+        self.race_encoder = LabelEncoder()  # 🔥 NEW: Track-specific encoding
         self.model_path = model_path or (settings.base_dir / 'ml' / 'saved_models' / 'tire_degradation_lstm.pth')
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         logger.info(f"Using device: {self.device}")
     
-    def prepare_data(
+    def prepare_training_data(
         self,
         laps_df: pd.DataFrame,
         sequence_length: int = 10
-    ) -> Tuple[np.ndarray, np.ndarray, pd.DataFrame]:
-        """
-        Prepare sequential data for LSTM training
-        
-        Args:
-            laps_df: DataFrame with lap data
-            sequence_length: Number of past laps to use as context
-        
-        Returns:
-            sequences, targets, processed_df
-        """
-        # Feature engineering
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        """Prepare training data - FIT scalers"""
         df = laps_df.copy()
         
-        # Encode categorical features
+        # FILTER OUT WET TIRES
+        df = df[df['Compound'].isin(['SOFT', 'MEDIUM', 'HARD'])].copy()
+        
+        # 🔥 NEW: Per-race IQR filtering (removes safety car, pit laps, etc.)
+        original_count = len(df)
+        filtered_dfs = []
+        
+        for race_name, race_group in df.groupby('Race'):
+            Q1 = race_group['LapTime_Seconds'].quantile(0.25)
+            Q3 = race_group['LapTime_Seconds'].quantile(0.75)
+            IQR = Q3 - Q1
+            
+            # Keep laps within 1.5 * IQR (standard outlier detection)
+            lower_bound = Q1 - 1.5 * IQR
+            upper_bound = Q3 + 1.5 * IQR
+            
+            race_filtered = race_group[
+                (race_group['LapTime_Seconds'] >= lower_bound) & 
+                (race_group['LapTime_Seconds'] <= upper_bound)
+            ]
+            
+            filtered_dfs.append(race_filtered)
+            logger.info(f"  {race_name}: {len(race_filtered)}/{len(race_group)} laps kept (mean: {race_filtered['LapTime_Seconds'].mean():.1f}s)")
+        
+        df = pd.concat(filtered_dfs, ignore_index=True)
+        removed = original_count - len(df)
+        logger.info(f"Filtered to {len(df)} laps (removed {removed} outliers using IQR method)")
+        
+        # 🔥 NEW: Encode Race/Track (so model learns per-circuit baselines)
+        df['Race_Encoded'] = self.race_encoder.fit_transform(df['Race'])
+        
+        # Encode other categoricals
         df['Compound_Encoded'] = self.compound_encoder.fit_transform(df['Compound'])
         df['Driver_Encoded'] = self.driver_encoder.fit_transform(df['Driver'])
         
-        # Create previous lap time feature
-        df['PrevLapTime'] = df.groupby(['Driver', 'Stint'])['LapTime_Seconds'].shift(1)
+        # Previous lap time
+        df['PrevLapTime'] = df.groupby(['Driver', 'Stint', 'Race'])['LapTime_Seconds'].shift(1)
         df['PrevLapTime'] = df['PrevLapTime'].fillna(df['LapTime_Seconds'])
         
-        # Select features
+        # 🔥 UPDATED: Now 8 features instead of 7 (added Race_Encoded)
         feature_cols = [
             'LapNumber',
             'TyreLife',
@@ -141,37 +164,139 @@ class TireDegradationPredictor:
             'AirTemp',
             'Compound_Encoded',
             'Driver_Encoded',
+            'Race_Encoded',      # 🔥 NEW
             'PrevLapTime'
         ]
-        
         target_col = 'LapTime_Seconds'
         
-        # Remove rows with missing values
-        df = df[feature_cols + [target_col]].dropna()
+        # Keep Race for grouping
+        df = df[feature_cols + [target_col, 'Race', 'Driver', 'Stint']].dropna()
         
-        # Scale features
-        df[feature_cols] = self.scaler.fit_transform(df[feature_cols])
+        logger.info(f"Training on {df['Race'].nunique()} unique tracks: {df['Race'].unique().tolist()}")
+        
+        # FIT scalers
+        scaled_features = self.feature_scaler.fit_transform(df[feature_cols])
+        scaled_target = self.target_scaler.fit_transform(df[[target_col]]).flatten()
         
         # Create sequences
-        sequences = []
-        targets = []
+        sequences, targets = [], []
         
-        # Group by driver and stint to maintain continuity
-        for (driver, stint), group in df.groupby(['Driver_Encoded', 'Compound_Encoded']):
+        for _, group in df.groupby(['Driver', 'Stint', 'Race']):
             if len(group) < sequence_length + 1:
                 continue
             
-            group_features = group[feature_cols].values
-            group_targets = group[target_col].values
-            
             for i in range(len(group) - sequence_length):
-                seq = group_features[i:i+sequence_length]
-                target = group_targets[i+sequence_length]
+                seq_indices = group.iloc[i:i+sequence_length].index
+                target_idx = group.iloc[i+sequence_length].name
+                
+                seq = scaled_features[df.index.get_indexer(seq_indices)]
+                target = scaled_target[df.index.get_loc(target_idx)]
                 
                 sequences.append(seq)
                 targets.append(target)
         
-        return np.array(sequences), np.array(targets), df
+        return np.array(sequences), np.array(targets)
+
+
+    def prepare_test_data(
+        self,
+        laps_df: pd.DataFrame,
+        sequence_length: int = 10
+    ) -> Tuple[np.ndarray, np.ndarray]:
+        """Prepare test data - TRANSFORM ONLY"""
+        df = laps_df.copy()
+        
+        # FILTER OUT WET TIRES
+        df = df[df['Compound'].isin(['SOFT', 'MEDIUM', 'HARD'])].copy()
+        
+        # FIXED RANGE: 70-110s
+        original_count = len(df)
+        df = df[(df['LapTime_Seconds'] >= 70.0) & (df['LapTime_Seconds'] <= 110.0)].copy()
+        removed = original_count - len(df)
+        logger.info(f"Test data: {len(df)} laps (removed {removed} outliers)")
+        
+        # 🔥 TRANSFORM ONLY (use fitted encoder from training)
+        df['Race_Encoded'] = self.race_encoder.transform(df['Race'])
+        
+        # TRANSFORM ONLY
+        df['Compound_Encoded'] = self.compound_encoder.transform(df['Compound'])
+        df['Driver_Encoded'] = self.driver_encoder.transform(df['Driver'])
+        
+        df['PrevLapTime'] = df.groupby(['Driver', 'Stint', 'Race'])['LapTime_Seconds'].shift(1)
+        df['PrevLapTime'] = df['PrevLapTime'].fillna(df['LapTime_Seconds'])
+        
+        # 🔥 UPDATED: 8 features
+        feature_cols = [
+            'LapNumber',
+            'TyreLife',
+            'TrackTemp',
+            'AirTemp',
+            'Compound_Encoded',
+            'Driver_Encoded',
+            'Race_Encoded',      # 🔥 NEW
+            'PrevLapTime'
+        ]
+        target_col = 'LapTime_Seconds'
+        
+        df = df[feature_cols + [target_col, 'Race', 'Driver', 'Stint']].dropna()
+        
+        logger.info(f"Test tracks: {df['Race'].unique().tolist()}")
+        
+        # TRANSFORM ONLY
+        scaled_features = self.feature_scaler.transform(df[feature_cols])
+        scaled_target = self.target_scaler.transform(df[[target_col]]).flatten()
+        
+        # Create sequences
+        sequences, targets = [], []
+        
+        for _, group in df.groupby(['Driver', 'Stint', 'Race']):
+            if len(group) < sequence_length + 1:
+                continue
+            
+            for i in range(len(group) - sequence_length):
+                seq_indices = group.iloc[i:i+sequence_length].index
+                target_idx = group.iloc[i+sequence_length].name
+                
+                seq = scaled_features[df.index.get_indexer(seq_indices)]
+                target = scaled_target[df.index.get_loc(target_idx)]
+                
+                sequences.append(seq)
+                targets.append(target)
+        
+        return np.array(sequences), np.array(targets)
+
+
+    def _create_sequences(
+        self,
+        scaled_features: np.ndarray,
+        scaled_target: np.ndarray,
+        df: pd.DataFrame,
+        sequence_length: int
+    ) -> Tuple[List, List]:
+        """Helper to create sequences from scaled data"""
+        sequences = []
+        targets = []
+        
+        # Group by driver, compound, and race
+        for (driver, compound, race), group in df.groupby(['Driver_Encoded', 'Compound_Encoded', 'Race']):
+            if len(group) < sequence_length + 1:
+                continue
+            
+            group_indices = group.index.tolist()
+            
+            for i in range(len(group_indices) - sequence_length):
+                seq_start = df.index.get_loc(group_indices[i])
+                seq_end = df.index.get_loc(group_indices[i + sequence_length - 1]) + 1
+                target_idx = df.index.get_loc(group_indices[i + sequence_length])
+                
+                seq = scaled_features[seq_start:seq_end]
+                target = scaled_target[target_idx]
+                
+                if len(seq) == sequence_length:
+                    sequences.append(seq)
+                    targets.append(target)
+        
+        return sequences, targets
     
     def train(
         self,
@@ -181,30 +306,24 @@ class TireDegradationPredictor:
         learning_rate: float = 0.001,
         validation_split: float = 0.2
     ) -> Dict[str, List[float]]:
-        """
-        Train the LSTM model
+        """Train the LSTM model"""
         
-        Returns:
-            Dictionary with training history
-        """
-        logger.info("Preparing training data...")
-        sequences, targets, processed_df = self.prepare_data(laps_df)
+        logger.info("Preparing training data with separate feature/target scaling...")
+        sequences, targets = self.prepare_training_data(laps_df)  # Changed here
         
         logger.info(f"Created {len(sequences)} sequences of length {sequences.shape[1]}")
         
-        # Train/validation split
+        # Rest stays the same...
         X_train, X_val, y_train, y_val = train_test_split(
             sequences, targets, test_size=validation_split, random_state=42
         )
         
-        # Create datasets
         train_dataset = TireDegradationDataset(X_train, y_train)
         val_dataset = TireDegradationDataset(X_val, y_val)
         
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         val_loader = DataLoader(val_dataset, batch_size=batch_size)
         
-        # Initialize model
         input_size = sequences.shape[2]
         self.model = TireDegradationLSTM(input_size=input_size).to(self.device)
         
@@ -214,16 +333,13 @@ class TireDegradationPredictor:
             optimizer, mode='min', factor=0.5, patience=5
         )
         
-        current_lr = learning_rate
-
-        # Training loop
         history = {'train_loss': [], 'val_loss': []}
         best_val_loss = float('inf')
         
         logger.info("Starting training...")
         
         for epoch in range(epochs):
-            # Training phase
+            # Training
             self.model.train()
             train_losses = []
             
@@ -242,7 +358,7 @@ class TireDegradationPredictor:
             avg_train_loss = np.mean(train_losses)
             history['train_loss'].append(avg_train_loss)
             
-            # Validation phase
+            # Validation
             self.model.eval()
             val_losses = []
             
@@ -258,19 +374,12 @@ class TireDegradationPredictor:
             avg_val_loss = np.mean(val_losses)
             history['val_loss'].append(avg_val_loss)
             
-            # Learning rate scheduling
             scheduler.step(avg_val_loss)
-
-            new_lr = optimizer.param_groups[0]['lr']
-            if new_lr != current_lr:
-                logger.info(f"Learning rate reduced: {current_lr} -> {new_lr}")
-                current_lr = new_lr
             
-            # Save best model
             if avg_val_loss < best_val_loss:
                 best_val_loss = avg_val_loss
                 self.save_model()
-                logger.info(f"✅ Epoch {epoch+1}: New best model saved (val_loss: {avg_val_loss:.4f})")
+                logger.info(f"Epoch {epoch+1}: New best model saved (val_loss: {avg_val_loss:.4f})")
             
             if (epoch + 1) % 10 == 0:
                 logger.info(f"Epoch {epoch+1}/{epochs} - Train Loss: {avg_train_loss:.4f}, Val Loss: {avg_val_loss:.4f}")
@@ -278,16 +387,17 @@ class TireDegradationPredictor:
         logger.info(f"Training complete! Best validation loss: {best_val_loss:.4f}")
         
         return history
+
     
     def predict(self, sequence: np.ndarray) -> float:
         """
-        Predict next lap time given a sequence of previous laps
+        Predict next lap time with proper inverse scaling
         
         Args:
-            sequence: Array of shape (sequence_length, input_size)
+            sequence: Scaled feature sequence (sequence_length, input_size)
         
         Returns:
-            Predicted lap time
+            Predicted lap time in original seconds scale
         """
         if self.model is None:
             raise ValueError("Model not loaded. Train or load a model first.")
@@ -296,30 +406,37 @@ class TireDegradationPredictor:
         
         with torch.no_grad():
             sequence_tensor = torch.FloatTensor(sequence).unsqueeze(0).to(self.device)
-            prediction = self.model(sequence_tensor).item()
+            prediction_scaled = self.model(sequence_tensor).item()
         
-        return prediction
+        # CRITICAL FIX: Inverse transform using target scaler
+        prediction_original = self.target_scaler.inverse_transform([[prediction_scaled]])[0][0]
+        
+        return prediction_original
     
     def save_model(self):
-        """Save model and preprocessing objects"""
+        """Save model and ALL preprocessing objects"""
         self.model_path.parent.mkdir(parents=True, exist_ok=True)
         
         # Save PyTorch model
         torch.save(self.model.state_dict(), self.model_path)
         
         # Save preprocessing objects
-        scaler_path = self.model_path.parent / 'scaler.pkl'
+        feature_scaler_path = self.model_path.parent / 'feature_scaler.pkl'
+        target_scaler_path = self.model_path.parent / 'target_scaler.pkl'
         compound_encoder_path = self.model_path.parent / 'compound_encoder.pkl'
         driver_encoder_path = self.model_path.parent / 'driver_encoder.pkl'
+        race_encoder_path = self.model_path.parent / 'race_encoder.pkl'  # 🔥 NEW
         
-        joblib.dump(self.scaler, scaler_path)
+        joblib.dump(self.feature_scaler, feature_scaler_path)
+        joblib.dump(self.target_scaler, target_scaler_path)
         joblib.dump(self.compound_encoder, compound_encoder_path)
         joblib.dump(self.driver_encoder, driver_encoder_path)
+        joblib.dump(self.race_encoder, race_encoder_path)  # 🔥 NEW
         
         logger.info(f"Model saved to {self.model_path}")
     
-    def load_model(self, input_size: int = 7):
-        """Load trained model and preprocessing objects"""
+    def load_model(self, input_size: int = 8):  # 🔥 CHANGED: 7 → 8
+        """Load trained model and ALL preprocessing objects"""
         if not self.model_path.exists():
             raise FileNotFoundError(f"Model not found at {self.model_path}")
         
@@ -328,13 +445,17 @@ class TireDegradationPredictor:
         self.model.eval()
         
         # Load preprocessing objects
-        scaler_path = self.model_path.parent / 'scaler.pkl'
+        feature_scaler_path = self.model_path.parent / 'feature_scaler.pkl'
+        target_scaler_path = self.model_path.parent / 'target_scaler.pkl'
         compound_encoder_path = self.model_path.parent / 'compound_encoder.pkl'
         driver_encoder_path = self.model_path.parent / 'driver_encoder.pkl'
+        race_encoder_path = self.model_path.parent / 'race_encoder.pkl'  # 🔥 NEW
         
-        self.scaler = joblib.load(scaler_path)
+        self.feature_scaler = joblib.load(feature_scaler_path)
+        self.target_scaler = joblib.load(target_scaler_path)
         self.compound_encoder = joblib.load(compound_encoder_path)
         self.driver_encoder = joblib.load(driver_encoder_path)
+        self.race_encoder = joblib.load(race_encoder_path)  # 🔥 NEW
         
         logger.info(f"Model loaded from {self.model_path}")
 
@@ -383,7 +504,7 @@ def main():
     logger.info(f"Training history saved to {plot_path}")
     
     print("\n" + "="*80)
-    print("✅ LSTM Model Training Complete!")
+    print("LSTM Model Training Complete!")
     print(f"Model saved to: {predictor.model_path}")
     print(f"Final validation loss: {history['val_loss'][-1]:.4f}")
     print("="*80)

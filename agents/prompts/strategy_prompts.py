@@ -32,6 +32,9 @@ STRATEGY_ANALYSIS_PROMPT = """Analyze the following race data and provide a pit 
 **TIRE DEGRADATION DATA**:
 {degradation_data}
 
+**LSTM MODEL INSIGHT**:
+{lstm_summary}
+
 **OPTIMAL PIT WINDOWS**:
 {pit_windows}
 

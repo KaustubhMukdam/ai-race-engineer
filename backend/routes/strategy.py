@@ -21,6 +21,7 @@ from backend.schemas.strategy_schema import (
 from agents.strategy_agent import StrategyAgent
 from config.app_config import settings
 from utils.logger import setup_logger
+from ml.models.lstm_interface import LSTMInferenceEngine
 
 logger = setup_logger(__name__)
 
@@ -49,9 +50,9 @@ def initialize_agent():
         strategy_agent = StrategyAgent()
         
         # Load latest processed race data
-        degradation_file = settings.processed_data_dir / "2024_Abu_Dhabi_GP_processed" / "tire_degradation_analysis.csv"
-        pit_windows_file = settings.processed_data_dir / "2024_Abu_Dhabi_GP_processed" / "optimal_pit_windows.json"
-        
+        degradation_file = settings.processed_data_dir / "2024_Abu_Dhabi_Grand_Prix_Race_processed" / "tire_degradation_analysis.csv"
+        pit_windows_file = settings.processed_data_dir / "2024_Abu_Dhabi_Grand_Prix_Race_processed" / "optimal_pit_windows.json"
+
         strategy_agent.load_race_data(degradation_file, pit_windows_file)
         logger.info("Strategy agent initialized successfully")
         
@@ -143,3 +144,8 @@ async def analyze_undercut(request: UndercutAnalysisRequest) -> UndercutAnalysis
     except Exception as e:
         logger.error(f"Error in analyze_undercut: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@router.get("/strategy/lstm-status")
+async def lstm_status():
+    engine = LSTMInferenceEngine()
+    return {"available": engine.is_available()}
