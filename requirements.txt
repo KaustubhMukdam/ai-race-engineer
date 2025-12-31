@@ -36,6 +36,7 @@ torch==2.1.0
 scikit-learn==1.3.2
 joblib==1.3.2
 matplotlib==3.8.2
+xgboost
 
 # Training Data
 tqdm

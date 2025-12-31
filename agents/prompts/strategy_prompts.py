@@ -35,6 +35,9 @@ STRATEGY_ANALYSIS_PROMPT = """Analyze the following race data and provide a pit 
 **LSTM MODEL INSIGHT**:
 {lstm_summary}
 
+XGBoost Pit Window Analysis:  
+{xgb_summary}
+
 **OPTIMAL PIT WINDOWS**:
 {pit_windows}
 
@@ -51,7 +54,8 @@ Provide your strategy recommendation in this format:
 
 **REASONING**:
 1. Current tire condition: [analysis]
-2. Degradation projection: [analysis]
+2. Degradation projection: [analysis] (LSTM)
+3. Pit Window timing: [analysis] (XGBoost)
 3. Strategic considerations: [undercut/overcut/track position]
 
 **RISKS**:

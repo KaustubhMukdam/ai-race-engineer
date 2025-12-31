@@ -22,6 +22,7 @@ from agents.prompts.strategy_prompts import (
 from config.app_config import settings
 from utils.logger import setup_logger
 from ml.models.lstm_interface import LSTMInferenceEngine
+from ml.models.pit_window_classifier import PitWindowClassifier
 
 logger = setup_logger(__name__)
 
@@ -39,6 +40,13 @@ class StrategyAgent(BaseAgent):
         self.pit_windows = None
         self.lstm_engine = LSTMInferenceEngine()
         self.use_lstm = self.lstm_engine.is_available()
+        self.pit_classifier = PitWindowClassifier()
+
+        try:
+            self.pit_classifier.load_model()
+            logger.info("Pit window classifier loaded")
+        except FileNotFoundError:
+            logger.warning("Pit window classifier not found")
     
     def load_race_data(self, degradation_csv: Path, pit_windows_json: Path):
         """Load preprocessed race data"""
@@ -67,7 +75,8 @@ class StrategyAgent(BaseAgent):
         track_temp: float,
         air_temp: float,
         race_context: str = "Normal race conditions",
-        race_name: str = "2024_Monaco"
+        race_name: str = "2024_Monaco",
+        position: int = 10  # 🔥 NEW: Optional position parameter
     ) -> Dict[str, Any]:
         """
         Generate pit strategy recommendation
@@ -81,7 +90,9 @@ class StrategyAgent(BaseAgent):
             track_temp: Current track temperature
             air_temp: Current air temperature
             race_context: Additional context (safety car, traffic, etc.)
-        
+            race_name: Name of the race for LSTM predictions
+            position: Current track position (optional)
+            
         Returns:
             Dictionary with recommendation and reasoning
         """
@@ -105,15 +116,18 @@ class StrategyAgent(BaseAgent):
                 f"- {compound}: Laps {window[0]}-{window[1]}"
                 for compound, window in self.pit_windows.items()
             ])
-
+            
             # Get recent laps for LSTM prediction
             recent_laps = self._get_recent_laps(driver, current_lap)
-
             logger.info(f"DEBUG: Found {len(recent_laps)} recent laps for {driver}")
             logger.info(f"DEBUG: use_lstm={self.use_lstm}, recent_laps length check: {len(recent_laps) >= 10}")
-
-
+            
+            # ==================================================================
+            # LSTM PREDICTION
+            # ==================================================================
             lstm_summary = "LSTM model not available or insufficient data."
+            avg_deg_rate = 0.0  # Default degradation rate
+            
             if self.use_lstm and len(recent_laps) >= 10:
                 baseline = recent_laps[-1]
                 stint_pred = self.lstm_engine.predict_stint_degradation(
@@ -124,29 +138,80 @@ class StrategyAgent(BaseAgent):
                     track_temp=track_temp,
                     air_temp=air_temp,
                     baseline_lap_time=baseline,
-                    race_name=race_name 
+                    race_name=race_name
                 )
-                if stint_pred['status'] == 'success':
-                    lstm_summary = (
-                        f"LSTM predicts avg degradation {stint_pred['avg_degradation_per_lap']:.4f}s/lap "
-                        f"over next {stint_pred['stint_length']} laps, "
-                        f"total time loss {stint_pred['total_time_loss']:.3f}s vs baseline {baseline:.3f}s."
-                    )
-            
+                
                 logger.info(f"DEBUG: LSTM prediction status: {stint_pred.get('status')}")
-    
-                if stint_pred["status"] == "success":
+                
+                if stint_pred['status'] == 'success':
+                    avg_deg_rate = stint_pred['avg_degradation_per_lap']
+                    
                     lstm_summary = (
-                        f"LSTM predicts avg degradation {stint_pred['avg_degradation_per_lap']:.4f}s/lap "
+                        f"LSTM predicts avg degradation {avg_deg_rate:.4f}s/lap "
                         f"over next {stint_pred['stint_length']} laps, "
                         f"total time loss {stint_pred['total_time_loss']:.3f}s vs baseline {baseline:.3f}s."
                     )
+                    
                     logger.info(f"DEBUG: LSTM summary: {lstm_summary}")
-
-                logger.info(f"DEBUG: Final lstm_summary being sent to LLM: {lstm_summary}")
             
+            # Fallback: Calculate degradation from recent laps if LSTM unavailable
+            if avg_deg_rate == 0.0 and len(recent_laps) >= 5:
+                avg_deg_rate = (recent_laps[-1] - recent_laps[-5]) / 5
+                logger.info(f"DEBUG: Using manual degradation calculation: {avg_deg_rate:.4f}s/lap")
             
-            # Build prompt
+            logger.info(f"DEBUG: Final lstm_summary being sent to LLM: {lstm_summary}")
+            
+            # ==================================================================
+            # XGBOOST PIT WINDOW PREDICTION
+            # ==================================================================
+            xgb_summary = "XGBoost pit window classifier not available."
+            
+            # Check if XGBoost model is loaded
+            if hasattr(self.pit_classifier, 'model') and self.pit_classifier.model is not None:
+                try:
+                    # Extract position from race_context if not provided
+                    if position == 10:  # Default value
+                        import re
+                        pos_match = re.search(r'P(\d+)', race_context)
+                        if pos_match:
+                            position = int(pos_match.group(1))
+                            logger.info(f"DEBUG: Extracted position P{position} from race_context")
+                    
+                    # Prepare features for XGBoost
+                    pit_features = {
+                        'tire_age': tire_age,
+                        'tire_compound': current_compound,
+                        'lap_number': current_lap,
+                        'race_progress': current_lap / total_laps,
+                        'position': position,
+                        'track_temp': track_temp,
+                        'air_temp': air_temp,
+                        'degradation_rate': avg_deg_rate,
+                        'lap_time': recent_laps[-1] if recent_laps else 90.0
+                    }
+                    
+                    logger.info(f"DEBUG: XGBoost features: {pit_features}")
+                    
+                    # Get prediction
+                    pit_prediction = self.pit_classifier.predict(pit_features)
+                    
+                    # Format XGBoost summary
+                    xgb_summary = f"""XGBoost Pit Window Classifier:
+    - Should pit: {'YES' if pit_prediction['should_pit'] else 'NO'}
+    - Pit probability: {pit_prediction['pit_probability']:.2%}
+    - Confidence: {pit_prediction['confidence']:.2%}
+    """
+                    logger.info(f"DEBUG: XGBoost prediction: {pit_prediction}")
+                    
+                except Exception as e:
+                    logger.warning(f"XGBoost prediction failed: {e}")
+                    xgb_summary = f"XGBoost prediction unavailable: {str(e)}"
+            else:
+                logger.info("DEBUG: XGBoost model not loaded, skipping prediction")
+            
+            # ==================================================================
+            # BUILD LLM PROMPT
+            # ==================================================================
             user_prompt = STRATEGY_ANALYSIS_PROMPT.format(
                 driver=driver,
                 current_lap=current_lap,
@@ -158,7 +223,8 @@ class StrategyAgent(BaseAgent):
                 track_temp=track_temp,
                 air_temp=air_temp,
                 race_context=race_context,
-                lstm_summary=lstm_summary
+                lstm_summary=lstm_summary,
+                xgb_summary=xgb_summary
             )
             
             # Get LLM response
@@ -173,6 +239,7 @@ class StrategyAgent(BaseAgent):
                 "current_lap": current_lap,
                 "recommendation": response,
                 "lstm_used": self.use_lstm,
+                "xgb_used": hasattr(self.pit_classifier, 'model') and self.pit_classifier.model is not None,
                 "llm_model": self.model
             }
             
@@ -182,6 +249,7 @@ class StrategyAgent(BaseAgent):
                 "status": "error",
                 "message": str(e)
             }
+
     
     def explain_tire_degradation(self, driver: str, stint: int) -> str:
         """Generate natural language explanation of tire degradation"""

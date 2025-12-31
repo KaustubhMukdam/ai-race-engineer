@@ -14,3 +14,4 @@ model_testing.py
 monaco.py
 test_lstm_strategy.py
 ml/datasets
+tests/

@@ -1,0 +1,770 @@
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:120 | ================================================================================
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:121 | PIT WINDOW DATA PREPARATION
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:122 | ================================================================================
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:132 | Loading training data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\train_laps.csv
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:135 | Loaded 17697 laps from training data
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:136 | Races: 20
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:137 | Drivers: 25
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | main:140 | 
+Creating pit window features...
+2025-12-31 12:53:45 | [32mINFO[0m | [94m__main__[0m | create_pit_window_features:45 | Processing 20 races
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:143 | Created 14072 training samples
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:149 | 
+Class Distribution:
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:150 |   Pit (within 3 laps): 1715 (12.2%)
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:151 |   Stay out: 12357 (87.8%)
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:154 | 
+Compound Distribution:
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:157 |   MEDIUM: 4307 samples
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:157 |   HARD: 8265 samples
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:157 |   SOFT: 1500 samples
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:163 | 
+Saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:164 | ================================================================================
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:165 | Data preparation complete!
+2025-12-31 12:53:49 | [32mINFO[0m | [94m__main__[0m | main:166 | ================================================================================
+2025-12-31 12:59:15 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 12:59:15 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 12:59:15 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:56 | ================================================================================
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | ================================================================================
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:81 | 
+Dataset Split:
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 |   Training set: 11257 samples
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Test set: 2815 samples
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 | 
+Training class distribution:
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 |   Stay out (0): 9885 samples
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Pit (1): 1372 samples
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:90 | 
+Class imbalance ratio: 7.20
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:93 | 
+Training XGBoost model...
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:117 | 
+================================================================================
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | MODEL PERFORMANCE
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | ================================================================================
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9726    0.9061    0.9382      2472
+     Pit Now     0.5469    0.8163    0.6550       343
+
+    accuracy                         0.8952      2815
+   macro avg     0.7598    0.8612    0.7966      2815
+weighted avg     0.9208    0.8952    0.9037      2815
+
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:127 | ROC-AUC Score: 0.9335
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:132 | PR-AUC Score: 0.7311
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:134 | 
+Confusion Matrix:
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:136 |                 Predicted
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |               Stay  Pit
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 | Actual Stay  [ 2240  232]
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 |        Pit   [   63  280]
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:147 | 
+Feature Importance:
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_age            : 0.1698
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   race_progress       : 0.1643
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_compound_encoded: 0.1579
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   air_temp            : 0.1172
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_number          : 0.1160
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   track_temp          : 0.1125
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_time            : 0.1027
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   degradation_rate    : 0.0596
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   position            : 0.0000
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:209 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 12:59:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:210 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 13:00:31 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:224 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:01:22 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:01:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:01:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:01:22 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:01:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:224 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 18, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 1, 'track_temp': 35.0, 'air_temp': 28.0, 'degradation_rate': np.float64(-0.0183), 'lap_time': 89.75}
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.7325436472892761, 'stay_out_probability': 0.2674563527107239, 'confidence': 0.7325436472892761}
+2025-12-31 13:01:23 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:01:25 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 718, Completion: 353, Total: 1071
+2025-12-31 13:01:26 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:01:26 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:01:26 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:01:26 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:01:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:224 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:01:26 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:01:26 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:01:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:01:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 508, Total: 807
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:01:29 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:01:29 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:01:29 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:01:29 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:224 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 45
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for VER
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P2 from race_context
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 28, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.7758620689655172, 'position': 2, 'track_temp': 29.5, 'air_temp': 24.0, 'degradation_rate': np.float64(-0.0209), 'lap_time': 88.501}
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008176765404641628, 'stay_out_probability': 0.9918232560157776, 'confidence': 0.9918232560157776}
+2025-12-31 13:01:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:01:31 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 455, Total: 1178
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:01:32 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:01:32 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:01:32 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:01:32 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:224 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0196), 'lap_time': 90.128}
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.3198636472225189, 'stay_out_probability': 0.6801363229751587, 'confidence': 0.6801363229751587}
+2025-12-31 13:01:32 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 710, Completion: 431, Total: 1141
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'HARD', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0188), 'lap_time': 90.128}
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.12142478674650192, 'stay_out_probability': 0.8785752058029175, 'confidence': 0.8785752058029175}
+2025-12-31 13:01:35 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:01:40 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 428, Total: 1137
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:123 | ================================================================================
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:124 | PIT WINDOW DATA PREPARATION
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:125 | ================================================================================
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:135 | Loading training data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\train_laps.csv
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:138 | Loaded 17697 laps from training data
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:139 | Races: 20
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:140 | Drivers: 25
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | main:143 | 
+Creating pit window features...
+2025-12-31 13:16:08 | [32mINFO[0m | [94m__main__[0m | create_pit_window_features:45 | Processing 20 races
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:146 | Created 14072 training samples
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:152 | 
+Class Distribution:
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:153 |   Pit (within 3 laps): 1715 (12.2%)
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:154 |   Stay out: 12357 (87.8%)
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:157 | 
+Compound Distribution:
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:160 |   MEDIUM: 4307 samples
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:160 |   HARD: 8265 samples
+2025-12-31 13:16:11 | [32mINFO[0m | [94m__main__[0m | main:160 |   SOFT: 1500 samples
+2025-12-31 13:16:12 | [32mINFO[0m | [94m__main__[0m | main:166 | 
+Saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:16:12 | [32mINFO[0m | [94m__main__[0m | main:167 | ================================================================================
+2025-12-31 13:16:12 | [32mINFO[0m | [94m__main__[0m | main:168 | Data preparation complete!
+2025-12-31 13:16:12 | [32mINFO[0m | [94m__main__[0m | main:169 | ================================================================================
+2025-12-31 13:16:25 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:16:25 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 13:16:25 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:56 | ================================================================================
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | ================================================================================
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:81 | 
+Dataset Split:
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 |   Training set: 11257 samples
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Test set: 2815 samples
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 | 
+Training class distribution:
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 |   Stay out (0): 9885 samples
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Pit (1): 1372 samples
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:90 | 
+Class imbalance ratio: 7.20
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:93 | 
+Training XGBoost model...
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:117 | 
+================================================================================
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | MODEL PERFORMANCE
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | ================================================================================
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9726    0.9061    0.9382      2472
+     Pit Now     0.5469    0.8163    0.6550       343
+
+    accuracy                         0.8952      2815
+   macro avg     0.7598    0.8612    0.7966      2815
+weighted avg     0.9208    0.8952    0.9037      2815
+
+2025-12-31 13:16:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:127 | ROC-AUC Score: 0.9335
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:132 | PR-AUC Score: 0.7311
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:134 | 
+Confusion Matrix:
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:136 |                 Predicted
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |               Stay  Pit
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 | Actual Stay  [ 2240  232]
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 |        Pit   [   63  280]
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:147 | 
+Feature Importance:
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_age            : 0.1698
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   race_progress       : 0.1643
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_compound_encoded: 0.1579
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   air_temp            : 0.1172
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_number          : 0.1160
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   track_temp          : 0.1125
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_time            : 0.1027
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   degradation_rate    : 0.0596
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   position            : 0.0000
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:212 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:16:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:213 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 13:16:55 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:17:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:17:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:17:16 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:17:16 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 18, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 1, 'track_temp': 35.0, 'air_temp': 28.0, 'degradation_rate': np.float64(-0.0183), 'lap_time': 89.75}
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.7325436472892761, 'stay_out_probability': 0.2674563527107239, 'confidence': 0.7325436472892761, 'threshold_used': 0.35}
+2025-12-31 13:17:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:17:18 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 718, Completion: 352, Total: 1070
+2025-12-31 13:17:19 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:17:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:17:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:17:19 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:17:19 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:17:19 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:17:19 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:17:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:17:21 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 494, Total: 793
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:17:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:17:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:17:22 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:17:22 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 45
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for VER
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P2 from race_context
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 28, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.7758620689655172, 'position': 2, 'track_temp': 29.5, 'air_temp': 24.0, 'degradation_rate': np.float64(-0.0209), 'lap_time': 88.501}
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008176765404641628, 'stay_out_probability': 0.9918232560157776, 'confidence': 0.9918232560157776, 'threshold_used': 0.35}
+2025-12-31 13:17:22 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 425, Total: 1148
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:17:26 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:17:26 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:17:26 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:17:26 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0196), 'lap_time': 90.128}
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.3198636472225189, 'stay_out_probability': 0.6801363229751587, 'confidence': 0.6801363229751587, 'threshold_used': 0.35}
+2025-12-31 13:17:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 710, Completion: 419, Total: 1129
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'HARD', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0188), 'lap_time': 90.128}
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.12142478674650192, 'stay_out_probability': 0.8785752058029175, 'confidence': 0.8785752058029175, 'threshold_used': 0.35}
+2025-12-31 13:17:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:17:30 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 372, Total: 1081
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:129 | ================================================================================
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:130 | PIT WINDOW DATA PREPARATION
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:131 | ================================================================================
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:141 | Loading training data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\train_laps.csv
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:144 | Loaded 17697 laps from training data
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:145 | Races: 20
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:146 | Drivers: 25
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | main:149 | 
+Creating pit window features...
+2025-12-31 13:19:55 | [32mINFO[0m | [94m__main__[0m | create_pit_window_features:45 | Processing 20 races
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:152 | Created 14072 training samples
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:158 | 
+Class Distribution:
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:159 |   Pit (within 3 laps): 1715 (12.2%)
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:160 |   Stay out: 12357 (87.8%)
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:163 | 
+Compound Distribution:
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   MEDIUM: 4307 samples
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   HARD: 8265 samples
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   SOFT: 1500 samples
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:172 | 
+Saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:173 | ================================================================================
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:174 | Data preparation complete!
+2025-12-31 13:20:12 | [32mINFO[0m | [94m__main__[0m | main:175 | ================================================================================
+2025-12-31 13:20:24 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:20:24 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 13:20:24 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:56 | ================================================================================
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | ================================================================================
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:81 | 
+Dataset Split:
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 |   Training set: 11257 samples
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Test set: 2815 samples
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 | 
+Training class distribution:
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 |   Stay out (0): 9885 samples
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Pit (1): 1372 samples
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:90 | 
+Class imbalance ratio: 7.20
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:93 | 
+Training XGBoost model...
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:117 | 
+================================================================================
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | MODEL PERFORMANCE
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | ================================================================================
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9690    0.9102    0.9387      2472
+     Pit Now     0.5497    0.7901    0.6483       343
+
+    accuracy                         0.8956      2815
+   macro avg     0.7593    0.8501    0.7935      2815
+weighted avg     0.9179    0.8956    0.9033      2815
+
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:127 | ROC-AUC Score: 0.9327
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:132 | PR-AUC Score: 0.7326
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:134 | 
+Confusion Matrix:
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:136 |                 Predicted
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |               Stay  Pit
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 | Actual Stay  [ 2250  222]
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 |        Pit   [   72  271]
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:147 | 
+Feature Importance:
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_compound_encoded: 0.1537
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_age            : 0.1529
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   race_progress       : 0.1508
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_number          : 0.1029
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   air_temp            : 0.1028
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   track_temp          : 0.1019
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   position            : 0.0915
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_time            : 0.0861
+2025-12-31 13:20:24 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   degradation_rate    : 0.0574
+2025-12-31 13:20:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:212 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:20:25 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:213 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 13:20:45 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:21:01 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:21:01 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:21:01 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:21:01 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 18, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 1, 'track_temp': 35.0, 'air_temp': 28.0, 'degradation_rate': np.float64(-0.0183), 'lap_time': 89.75}
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.21775677800178528, 'stay_out_probability': 0.7822432518005371, 'confidence': 0.7822432518005371, 'threshold_used': 0.35}
+2025-12-31 13:21:01 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:21:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 718, Completion: 416, Total: 1134
+2025-12-31 13:21:03 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:21:03 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:21:03 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:21:03 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:21:03 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:21:03 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:21:04 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:21:04 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 499, Total: 798
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:21:06 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:21:06 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:21:06 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:21:06 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 45
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for VER
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P2 from race_context
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 28, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.7758620689655172, 'position': 2, 'track_temp': 29.5, 'air_temp': 24.0, 'degradation_rate': np.float64(-0.0209), 'lap_time': 88.501}
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.01142493449151516, 'stay_out_probability': 0.9885750412940979, 'confidence': 0.9885750412940979, 'threshold_used': 0.35}
+2025-12-31 13:21:06 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:21:08 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 398, Total: 1121
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:21:09 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:21:09 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:21:09 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:21:09 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:227 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0196), 'lap_time': 90.128}
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1502573937177658, 'stay_out_probability': 0.849742591381073, 'confidence': 0.849742591381073, 'threshold_used': 0.35}
+2025-12-31 13:21:09 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:21:10 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 710, Completion: 434, Total: 1144
+2025-12-31 13:21:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'HARD', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0188), 'lap_time': 90.128}
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.032242659479379654, 'stay_out_probability': 0.9677573442459106, 'confidence': 0.9677573442459106, 'threshold_used': 0.35}
+2025-12-31 13:21:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:21:12 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 345, Total: 1054
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:129 | ================================================================================
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:130 | PIT WINDOW DATA PREPARATION
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:131 | ================================================================================
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:141 | Loading training data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\train_laps.csv
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:144 | Loaded 17697 laps from training data
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:145 | Races: 20
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:146 | Drivers: 25
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | main:149 | 
+Creating pit window features...
+2025-12-31 13:27:55 | [32mINFO[0m | [94m__main__[0m | create_pit_window_features:45 | Processing 20 races
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:152 | Created 14072 training samples
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:158 | 
+Class Distribution:
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:159 |   Pit (within 3 laps): 2750 (19.5%)
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:160 |   Stay out: 11322 (80.5%)
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:163 | 
+Compound Distribution:
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   MEDIUM: 4307 samples
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   HARD: 8265 samples
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:166 |   SOFT: 1500 samples
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:172 | 
+Saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:173 | ================================================================================
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:174 | Data preparation complete!
+2025-12-31 13:28:12 | [32mINFO[0m | [94m__main__[0m | main:175 | ================================================================================
+2025-12-31 13:28:23 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:28:23 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 13:28:23 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:56 | ================================================================================
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | ================================================================================
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:81 | 
+Dataset Split:
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 |   Training set: 11257 samples
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Test set: 2815 samples
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 | 
+Training class distribution:
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 |   Stay out (0): 9057 samples
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Pit (1): 2200 samples
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:90 | 
+Class imbalance ratio: 4.12
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:93 | 
+Training XGBoost model...
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:117 | 
+================================================================================
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | MODEL PERFORMANCE
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | ================================================================================
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9542    0.9011    0.9269      2265
+     Pit Now     0.6686    0.8218    0.7374       550
+
+    accuracy                         0.8856      2815
+   macro avg     0.8114    0.8615    0.8321      2815
+weighted avg     0.8984    0.8856    0.8899      2815
+
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:127 | ROC-AUC Score: 0.9412
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:132 | PR-AUC Score: 0.8034
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:134 | 
+Confusion Matrix:
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:136 |                 Predicted
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |               Stay  Pit
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 | Actual Stay  [ 2041  224]
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 |        Pit   [   98  452]
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:147 | 
+Feature Importance:
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_age            : 0.1735
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   race_progress       : 0.1528
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_compound_encoded: 0.1526
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   air_temp            : 0.1199
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   track_temp          : 0.1114
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_number          : 0.0920
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_time            : 0.0828
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   position            : 0.0665
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   degradation_rate    : 0.0485
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:226 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:28:23 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:227 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 13:28:40 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:241 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:28:54 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:28:54 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:28:54 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:28:54 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:241 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 18, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 1, 'track_temp': 35.0, 'air_temp': 28.0, 'degradation_rate': np.float64(-0.0183), 'lap_time': 89.75}
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.7499542236328125, 'stay_out_probability': 0.2500457763671875, 'confidence': 0.7499542236328125, 'threshold_used': 0.3}
+2025-12-31 13:28:54 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:28:56 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 718, Completion: 391, Total: 1109
+2025-12-31 13:28:56 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:28:56 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:28:56 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:28:56 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:28:56 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:241 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:28:56 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:28:56 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:28:56 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:28:58 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 371, Total: 670
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:28:59 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:28:59 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:28:59 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:28:59 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:241 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 45
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for VER
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P2 from race_context
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 28, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.7758620689655172, 'position': 2, 'track_temp': 29.5, 'air_temp': 24.0, 'degradation_rate': np.float64(-0.0209), 'lap_time': 88.501}
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.010353097692131996, 'stay_out_probability': 0.9896469116210938, 'confidence': 0.9896469116210938, 'threshold_used': 0.35}
+2025-12-31 13:28:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:29:01 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 455, Total: 1178
+2025-12-31 13:29:01 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:29:01 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:29:01 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:29:01 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:29:02 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:241 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0196), 'lap_time': 90.128}
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.2654549479484558, 'stay_out_probability': 0.7345450520515442, 'confidence': 0.7345450520515442, 'threshold_used': 0.4}
+2025-12-31 13:29:02 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 710, Completion: 472, Total: 1182
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'HARD', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0188), 'lap_time': 90.128}
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.07892406731843948, 'stay_out_probability': 0.9210759401321411, 'confidence': 0.9210759401321411, 'threshold_used': 0.4}
+2025-12-31 13:29:04 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:29:05 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 377, Total: 1086
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:129 | ================================================================================
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:130 | PIT WINDOW DATA PREPARATION
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:131 | ================================================================================
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:141 | Loading training data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\train_laps.csv
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:144 | Loaded 17697 laps from training data
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:145 | Races: 20
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:146 | Drivers: 25
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | main:149 | 
+Creating pit window features...
+2025-12-31 13:35:19 | [32mINFO[0m | [94m__main__[0m | create_pit_window_features:45 | Processing 20 races
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:152 | Created 14072 training samples
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:158 | 
+Class Distribution:
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:159 |   Pit (within 3 laps): 2750 (19.5%)
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:160 |   Stay out: 11322 (80.5%)
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:163 | 
+Compound Distribution:
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:166 |   MEDIUM: 4307 samples
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:166 |   HARD: 8265 samples
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:166 |   SOFT: 1500 samples
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:172 | 
+Saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:173 | ================================================================================
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:174 | Data preparation complete!
+2025-12-31 13:35:36 | [32mINFO[0m | [94m__main__[0m | main:175 | ================================================================================
+2025-12-31 13:35:42 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 13:35:42 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 13:35:42 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:56 | ================================================================================
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | ================================================================================
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:81 | 
+Dataset Split:
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 |   Training set: 11257 samples
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Test set: 2815 samples
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 | 
+Training class distribution:
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 |   Stay out (0): 9057 samples
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Pit (1): 2200 samples
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:90 | 
+Class imbalance ratio: 4.12
+2025-12-31 13:35:42 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:93 | 
+Training XGBoost model...
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:117 | 
+================================================================================
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | MODEL PERFORMANCE
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | ================================================================================
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9542    0.9011    0.9269      2265
+     Pit Now     0.6686    0.8218    0.7374       550
+
+    accuracy                         0.8856      2815
+   macro avg     0.8114    0.8615    0.8321      2815
+weighted avg     0.8984    0.8856    0.8899      2815
+
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:127 | ROC-AUC Score: 0.9412
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:132 | PR-AUC Score: 0.8034
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:134 | 
+Confusion Matrix:
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:136 |                 Predicted
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |               Stay  Pit
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 | Actual Stay  [ 2041  224]
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 |        Pit   [   98  452]
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:147 | 
+Feature Importance:
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_age            : 0.1735
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   race_progress       : 0.1528
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   tire_compound_encoded: 0.1526
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   air_temp            : 0.1199
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   track_temp          : 0.1114
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_number          : 0.0920
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   lap_time            : 0.0828
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   position            : 0.0665
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:149 |   degradation_rate    : 0.0485
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:241 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:35:43 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:242 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 13:36:01 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:256 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:36:12 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:36:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:36:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:36:12 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:36:13 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:256 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0183s/lap over next 20 laps, total time loss -86.313s vs baseline 89.750s.
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 18, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 1, 'track_temp': 35.0, 'air_temp': 28.0, 'degradation_rate': np.float64(-0.0183), 'lap_time': 89.75}
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.7499542236328125, 'stay_out_probability': 0.2500457763671875, 'confidence': 0.7499542236328125, 'threshold_used': 0.3, 'reason': 'Tire: MEDIUM, Age: 18, Deg: -0.0183'}
+2025-12-31 13:36:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:36:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 718, Completion: 442, Total: 1160
+2025-12-31 13:36:16 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:36:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:36:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:36:16 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:36:16 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:256 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:36:16 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:36:16 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:36:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 299, Completion: 442, Total: 741
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:36:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:36:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:36:19 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:36:19 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:256 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 45
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for VER
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0209s/lap over next 13 laps, total time loss -39.386s vs baseline 88.501s.
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P2 from race_context
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 28, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.7758620689655172, 'position': 2, 'track_temp': 29.5, 'air_temp': 24.0, 'degradation_rate': np.float64(-0.0209), 'lap_time': 88.501}
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.010353097692131996, 'stay_out_probability': 0.9896469116210938, 'confidence': 0.9896469116210938, 'threshold_used': 0.35, 'reason': 'Tire: HARD, Age: 28, Deg: -0.0209'}
+2025-12-31 13:36:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:36:21 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 433, Total: 1156
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 13:36:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 13:36:22 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 13:36:22 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 13:36:22 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:256 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.json
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0196s/lap over next 20 laps, total time loss -92.343s vs baseline 90.128s.
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0196), 'lap_time': 90.128}
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.2654549479484558, 'stay_out_probability': 0.7345450520515442, 'confidence': 0.7345450520515442, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0196'}
+2025-12-31 13:36:22 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 710, Completion: 419, Total: 1129
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 15
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for VER
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0188s/lap over next 20 laps, total time loss -92.922s vs baseline 90.128s.
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'HARD', 'lap_number': 15, 'race_progress': 0.25862068965517243, 'position': 1, 'track_temp': 31.0, 'air_temp': 26.0, 'degradation_rate': np.float64(-0.0188), 'lap_time': 90.128}
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.07892406731843948, 'stay_out_probability': 0.9210759401321411, 'confidence': 0.9210759401321411, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 15, Deg: -0.0188'}
+2025-12-31 13:36:24 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 13:36:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 350, Total: 1059
