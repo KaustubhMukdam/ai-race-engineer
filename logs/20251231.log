@@ -768,3 +768,173 @@ Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_model
 2025-12-31 13:36:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.07892406731843948, 'stay_out_probability': 0.9210759401321411, 'confidence': 0.9210759401321411, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 15, Deg: -0.0188'}
 2025-12-31 13:36:24 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
 2025-12-31 13:36:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 709, Completion: 350, Total: 1059
+2025-12-31 20:13:17 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:13:17 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:13:17 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:13:17 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:15:55 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:15:55 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:15:55 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:15:55 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:23:37 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:23:37 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:23:37 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:23:37 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:25:52 | [32mINFO[0m | [94m__main__[0m | main:27 | Loading features from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2025-12-31 20:25:52 | [32mINFO[0m | [94m__main__[0m | main:30 | Loaded 14072 samples
+2025-12-31 20:25:52 | [32mINFO[0m | [94m__main__[0m | main:31 | Features shape: (14072, 12)
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:57 | ================================================================================
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:58 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:59 | ================================================================================
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:82 | 
+Dataset Split:
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:83 |   Training set: 11257 samples
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:84 |   Test set: 2815 samples
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:85 | 
+Training class distribution:
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:86 |   Stay out (0): 9057 samples
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:87 |   Pit (1): 2200 samples
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:91 | 
+Class imbalance ratio: 4.12
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:94 | 
+Training XGBoost model...
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:118 | 
+================================================================================
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:119 | MODEL PERFORMANCE
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:120 | ================================================================================
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:121 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9542    0.9011    0.9269      2265
+     Pit Now     0.6686    0.8218    0.7374       550
+
+    accuracy                         0.8856      2815
+   macro avg     0.8114    0.8615    0.8321      2815
+weighted avg     0.8984    0.8856    0.8899      2815
+
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:128 | ROC-AUC Score: 0.9412
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:133 | PR-AUC Score: 0.8034
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:135 | 
+Confusion Matrix:
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:137 |                 Predicted
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:138 |               Stay  Pit
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:139 | Actual Stay  [ 2041  224]
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:140 |        Pit   [   98  452]
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:148 | 
+Feature Importance:
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   tire_age            : 0.1735
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   race_progress       : 0.1528
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   tire_compound_encoded: 0.1526
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   air_temp            : 0.1199
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   track_temp          : 0.1114
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   lap_number          : 0.0920
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   lap_time            : 0.0828
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   position            : 0.0665
+2025-12-31 20:25:52 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | train:150 |   degradation_rate    : 0.0485
+2025-12-31 20:25:53 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:244 | 
+Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:25:53 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | save_model:245 | Encoder saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_encoder.pkl
+2025-12-31 20:26:06 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:26:06 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:26:06 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:26:06 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:26:06 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:26:06 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 20:29:03 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:29:03 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:29:03 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:29:03 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:29:03 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:29:03 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 20:34:11 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:34:11 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:34:11 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:34:11 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:34:11 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:34:11 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 20:37:12 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:37:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:37:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:37:12 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:37:12 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:37:12 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 20:37:13 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 20:37:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 20:37:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 20:37:13 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 20:37:13 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 20:37:13 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 21:04:18 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 21:04:18 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 21:04:18 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 21:04:18 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 21:04:18 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 21:04:18 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 21:04:19 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 21:04:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 21:04:19 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 21:04:19 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 21:04:19 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 21:04:19 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 22:52:46 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 22:52:46 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 22:52:46 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 22:52:46 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 22:52:46 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 22:52:46 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 22:59:13 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 22:59:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 22:59:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 22:59:13 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 22:59:13 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 22:59:13 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:01:57 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:01:57 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:01:57 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:01:57 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:01:58 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:01:58 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:01:58 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:04:55 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:04:55 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:04:55 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:04:55 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:04:55 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:04:55 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:04:56 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:10 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:10 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:07:10 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:07:10 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:07:10 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:07:10 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:07:10 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:10 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | OrchestratorAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 23:07:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 534, Completion: 173, Total: 707
+2025-12-31 23:07:12 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:07:12 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:07:12 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:07:12 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:07:12 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:07:12 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:12 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | OrchestratorAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 23:07:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 540, Completion: 187, Total: 727
+2025-12-31 23:07:13 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:07:13 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:07:13 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:07:13 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:07:13 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:07:14 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | OrchestratorAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 23:07:15 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 537, Completion: 198, Total: 735
+2025-12-31 23:07:15 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:15 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2025-12-31 23:07:15 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2025-12-31 23:07:15 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2025-12-31 23:07:15 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2025-12-31 23:07:15 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2025-12-31 23:07:16 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized OrchestratorAgent with model llama-3.3-70b-versatile
+2025-12-31 23:07:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | OrchestratorAgent calling Groq API with llama-3.3-70b-versatile
+2025-12-31 23:07:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 537, Completion: 187, Total: 724

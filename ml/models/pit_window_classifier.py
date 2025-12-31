@@ -23,6 +23,7 @@ from sklearn.metrics import (
 import joblib
 from config.app_config import settings
 from utils.logger import setup_logger
+import pickle
 
 logger = setup_logger(__name__)
 
@@ -33,8 +34,8 @@ class PitWindowClassifier:
         self.model = None
         self.compound_encoder = LabelEncoder()
         self.model_path = model_path or settings.base_dir / 'ml/saved_models/pit_window_xgb.json'
-        self.feature_names = None
-        
+        self.encoder_path = self.model_path.parent / 'pit_window_encoder.pkl'
+        self.feature_names = None        
     def train(
         self,
         features_df: pd.DataFrame,
@@ -228,29 +229,43 @@ class PitWindowClassifier:
         }
     
     def save_model(self):
-        """Save model and encoders"""
+        """Save model and encoders using pickle for full compatibility"""
         self.model_path.parent.mkdir(parents=True, exist_ok=True)
         
-        # Save XGBoost model
-        self.model.save_model(str(self.model_path))
+        # Change to .pkl extension for pickle format
+        model_pkl_path = self.model_path.with_suffix('.pkl')
+        
+        # Save entire XGBoost classifier with pickle (includes all attributes)
+        joblib.dump(self.model, model_pkl_path)
         
         # Save encoder
-        encoder_path = self.model_path.parent / 'pit_window_encoder.pkl'
-        joblib.dump(self.compound_encoder, encoder_path)
+        joblib.dump(self.compound_encoder, self.encoder_path)
         
-        logger.info(f"\nModel saved to {self.model_path}")
-        logger.info(f"Encoder saved to {encoder_path}")
-    
+        logger.info(f"\nModel saved to {model_pkl_path}")
+        logger.info(f"Encoder saved to {self.encoder_path}")
+
     def load_model(self):
-        """Load trained model"""
-        if not self.model_path.exists():
-            raise FileNotFoundError(f"Model not found at {self.model_path}")
+        """Load trained model and encoder"""
+        # Try .pkl first (new format), then .json (old format)
+        model_pkl_path = self.model_path.with_suffix('.pkl')
         
-        self.model = xgb.XGBClassifier()
-        self.model.load_model(str(self.model_path))
+        if model_pkl_path.exists():
+            # Load from pickle (recommended)
+            self.model = joblib.load(model_pkl_path)
+            logger.info(f"Model loaded from {model_pkl_path}")
+        elif self.model_path.exists():
+            # Fallback: Load from JSON (legacy)
+            logger.warning("Loading from JSON format. Consider retraining for better compatibility.")
+            self.model = xgb.XGBClassifier()
+            self.model.load_model(str(self.model_path))
+            logger.info(f"Model loaded from {self.model_path}")
+        else:
+            raise FileNotFoundError(f"Model not found at {model_pkl_path} or {self.model_path}")
         
         # Load encoder
-        encoder_path = self.model_path.parent / 'pit_window_encoder.pkl'
-        self.compound_encoder = joblib.load(encoder_path)
+        if not self.encoder_path.exists():
+            raise FileNotFoundError(f"Encoder not found at {self.encoder_path}")
         
-        logger.info(f"Model loaded from {self.model_path}")
+        self.compound_encoder = joblib.load(self.encoder_path)
+
+
