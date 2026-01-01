@@ -1,0 +1,56 @@
+{
+  "models": [
+    {
+      "model_name": "TireDegradationLSTM",
+      "version": "2.0.0",
+      "experiment_name": "TireDegradationLSTM_20260101_141037",
+      "timestamp": "2026-01-01T14:14:01.674962",
+      "metrics": {
+        "train_loss": 0.03639132509216197,
+        "val_loss": 0.008504216653915743,
+        "epochs_trained": 35,
+        "mae": 0.6879512071609497,
+        "mse": 0.9647716879844666,
+        "rmse": 0.9822279205889367,
+        "r2_score": 0.9906452894210815,
+        "mape": 0.7918277755379677,
+        "median_ae": 0.4988899230957031
+      },
+      "artifact_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\ml\\model_registry\\experiments\\TireDegradationLSTM_20260101_141037"
+    },
+    {
+      "model_name": "TireDegradationLSTM",
+      "version": "2.0.0",
+      "experiment_name": "TireDegradationLSTM_20260101_141803",
+      "timestamp": "2026-01-01T14:20:18.550284",
+      "metrics": {
+        "train_loss": 0.03304672279904855,
+        "val_loss": 0.009017956105526536,
+        "epochs_trained": 22,
+        "mae": 0.6372601985931396,
+        "mse": 0.9334368705749512,
+        "rmse": 0.9661453672066906,
+        "r2_score": 0.9909490942955017,
+        "mape": 0.7328158710151911,
+        "median_ae": 0.4157066345214844
+      },
+      "artifact_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\ml\\model_registry\\experiments\\TireDegradationLSTM_20260101_141803"
+    },
+    {
+      "model_name": "PitWindowClassifier",
+      "version": "2.0.0",
+      "experiment_name": "PitWindowClassifier_20260101_142018",
+      "timestamp": "2026-01-01T14:20:22.995391",
+      "metrics": {
+        "val_f1": 0.7652947719688543,
+        "val_roc_auc": 0.9515681459743268,
+        "n_estimators": 200,
+        "accuracy": 0.9076267171956419,
+        "roc_auc": 0.9583964296530797,
+        "pr_auc": 0.8547243131941897,
+        "f1_score": 0.7859495060373216
+      },
+      "artifact_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\ml\\model_registry\\experiments\\PitWindowClassifier_20260101_142018"
+    }
+  ]
+}

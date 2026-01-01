@@ -1,0 +1,223 @@
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | __init__:35 | Initialized TireDegradationLSTM trainer - Experiment: TireDegradationLSTM_20260101_133607
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | __init__:35 | Using device: cpu
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:109 | ================================================================================
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:110 | STARTING TRAINING PIPELINE: TireDegradationLSTM
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:111 | ================================================================================
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:114 | Step 1: Preparing data...
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:39 | Loading data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\multi_race_training_data.csv
+2026-01-01 13:36:07 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:42 | Loaded 22122 samples with 9 features
+2026-01-01 13:36:07 | [33mWARNING[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:54 | Missing columns: ['tire_age', 'track_temp', 'air_temp', 'fuel_load', 'tire_compound_SOFT', 'tire_compound_MEDIUM', 'tire_compound_HARD', 'weather_Dry', 'weather_Wet', 'weather_Mixed']
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | __init__:35 | Initialized TireDegradationLSTM trainer - Experiment: TireDegradationLSTM_20260101_141037
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | __init__:38 | Using device: cpu
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:109 | ================================================================================
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:110 | STARTING TRAINING PIPELINE: TireDegradationLSTM
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:111 | ================================================================================
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:114 | Step 1: Preparing data...
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:42 | Loading data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\multi_race_training_data.csv
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:45 | Loaded 22122 samples
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:57 | Filtered to dry compounds: 21446 laps
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Abu_Dhabi: 1086/1137 laps (mean: 90.2s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Austria: 1195/1332 laps (mean: 70.6s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Bahrain: 949/1035 laps (mean: 98.7s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Belgium: 747/796 laps (mean: 113.4s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Britain: 816/946 laps (mean: 93.0s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Hungary: 1176/1232 laps (mean: 84.7s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Monaco: 975/1050 laps (mean: 78.6s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Saudi_Arabia: 835/904 laps (mean: 95.1s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Spain: 1217/1292 laps (mean: 80.2s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Abu_Dhabi: 933/1014 laps (mean: 89.5s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Australia: 860/976 laps (mean: 82.5s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Austria: 1250/1385 laps (mean: 71.1s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Bahrain: 1050/1107 laps (mean: 97.0s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Britain: 629/707 laps (mean: 92.3s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_China: 783/987 laps (mean: 101.7s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Hungary: 1279/1335 laps (mean: 84.5s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Japan: 810/858 laps (mean: 97.5s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Monaco: 1172/1210 laps (mean: 79.4s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Saudi_Arabia: 814/853 laps (mean: 94.3s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Spain: 1213/1290 laps (mean: 80.6s)
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:81 | Removed 1657 outliers using IQR per-race filtering
+2026-01-01 14:10:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:108 | Training on 20 tracks: ['2023_Abu_Dhabi', '2023_Austria', '2023_Bahrain', '2023_Belgium', '2023_Britain', '2023_Hungary', '2023_Monaco', '2023_Saudi_Arabia', '2023_Spain', '2024_Abu_Dhabi', '2024_Australia', '2024_Austria', '2024_Bahrain', '2024_Britain', '2024_China', '2024_Hungary', '2024_Japan', '2024_Monaco', '2024_Saudi_Arabia', '2024_Spain']
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:135 | Created 15942 sequences of length 10
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:150 | Split: Train=11159, Val=2391, Test=2392
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:118 | Step 2: Building model...
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:166 | Building LSTM model
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:167 | Config: {'hidden_size': 128, 'num_layers': 2, 'dropout': 0.3, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 100, 'patience': 15}
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:177 | Model parameters: 206,913
+2026-01-01 14:10:40 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:122 | Step 3: Training model...
+2026-01-01 14:10:44 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:202 | ================================================================================
+2026-01-01 14:10:44 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:203 | TRAINING STARTED
+2026-01-01 14:10:44 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:204 | ================================================================================
+2026-01-01 14:10:49 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [1/100] - Train Loss: 0.106710, Val Loss: 0.015639
+2026-01-01 14:11:37 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [10/100] - Train Loss: 0.042538, Val Loss: 0.009418
+2026-01-01 14:12:34 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [20/100] - Train Loss: 0.038514, Val Loss: 0.008504
+2026-01-01 14:13:31 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [30/100] - Train Loss: 0.037361, Val Loss: 0.010536
+2026-01-01 14:13:59 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:255 | Early stopping at epoch 35
+2026-01-01 14:13:59 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:261 | ================================================================================
+2026-01-01 14:13:59 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:262 | TRAINING COMPLETE
+2026-01-01 14:13:59 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:263 | ================================================================================
+2026-01-01 14:13:59 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:264 | Best validation loss: 0.008504
+2026-01-01 14:14:00 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | _plot_training_history:342 | Training history saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141037\training_history.png
+2026-01-01 14:14:00 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:127 | Step 4: Evaluating model...
+2026-01-01 14:14:00 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | evaluate:277 | Evaluating model on test set...
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | _plot_predictions:370 | Predictions plot saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141037\predictions.png
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:132 | Step 5: Saving artifacts...
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | save_model:314 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141037\TireDegradationLSTM.pth
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | save_model:326 | Scalers saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141037\scalers.pkl
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | save_experiment_metadata:75 | Experiment metadata saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141037\metadata.json
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:138 | Step 6: Registering model...
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | register_model:105 | Model registered: TireDegradationLSTM v2.0.0
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:141 | ================================================================================
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:142 | TRAINING PIPELINE COMPLETE!
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:143 | ================================================================================
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | __init__:35 | Initialized PitWindowClassifier trainer - Experiment: PitWindowClassifier_20260101_141401
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:109 | ================================================================================
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:110 | STARTING TRAINING PIPELINE: PitWindowClassifier
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:111 | ================================================================================
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:114 | Step 1: Preparing data...
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:45 | Loading data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:48 | Loaded 14072 samples
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:95 | Split: Train=9850, Val=2111, Test=2111
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:96 | Training class distribution:
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:97 |   Stay out (0): 7925 samples
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:98 |   Pit (1): 1925 samples
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:118 | Step 2: Building model...
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:112 | Building XGBoost model
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:129 | Model config: {'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.1, 'subsample': 0.8, 'colsample_bytree': 0.8}
+2026-01-01 14:14:01 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:122 | Step 3: Training model...
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | __init__:35 | Initialized TireDegradationLSTM trainer - Experiment: TireDegradationLSTM_20260101_141803
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | __init__:38 | Using device: cpu
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:109 | ================================================================================
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:110 | STARTING TRAINING PIPELINE: TireDegradationLSTM
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:111 | ================================================================================
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:114 | Step 1: Preparing data...
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:42 | Loading data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\multi_race_training_data.csv
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:45 | Loaded 22122 samples
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:57 | Filtered to dry compounds: 21446 laps
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Abu_Dhabi: 1086/1137 laps (mean: 90.2s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Austria: 1195/1332 laps (mean: 70.6s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Bahrain: 949/1035 laps (mean: 98.7s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Belgium: 747/796 laps (mean: 113.4s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Britain: 816/946 laps (mean: 93.0s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Hungary: 1176/1232 laps (mean: 84.7s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Monaco: 975/1050 laps (mean: 78.6s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Saudi_Arabia: 835/904 laps (mean: 95.1s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2023_Spain: 1217/1292 laps (mean: 80.2s)
+2026-01-01 14:18:03 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Abu_Dhabi: 933/1014 laps (mean: 89.5s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Australia: 860/976 laps (mean: 82.5s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Austria: 1250/1385 laps (mean: 71.1s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Bahrain: 1050/1107 laps (mean: 97.0s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Britain: 629/707 laps (mean: 92.3s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_China: 783/987 laps (mean: 101.7s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Hungary: 1279/1335 laps (mean: 84.5s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Japan: 810/858 laps (mean: 97.5s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Monaco: 1172/1210 laps (mean: 79.4s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Saudi_Arabia: 814/853 laps (mean: 94.3s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:77 |   2024_Spain: 1213/1290 laps (mean: 80.6s)
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:81 | Removed 1657 outliers using IQR per-race filtering
+2026-01-01 14:18:04 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:108 | Training on 20 tracks: ['2023_Abu_Dhabi', '2023_Austria', '2023_Bahrain', '2023_Belgium', '2023_Britain', '2023_Hungary', '2023_Monaco', '2023_Saudi_Arabia', '2023_Spain', '2024_Abu_Dhabi', '2024_Australia', '2024_Austria', '2024_Bahrain', '2024_Britain', '2024_China', '2024_Hungary', '2024_Japan', '2024_Monaco', '2024_Saudi_Arabia', '2024_Spain']
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:135 | Created 15942 sequences of length 10
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | prepare_data:150 | Split: Train=11159, Val=2391, Test=2392
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:118 | Step 2: Building model...
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:166 | Building LSTM model
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:167 | Config: {'hidden_size': 128, 'num_layers': 2, 'dropout': 0.3, 'learning_rate': 0.001, 'batch_size': 32, 'epochs': 100, 'patience': 15}
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | build_model:177 | Model parameters: 206,913
+2026-01-01 14:18:06 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:122 | Step 3: Training model...
+2026-01-01 14:18:08 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:202 | ================================================================================
+2026-01-01 14:18:08 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:203 | TRAINING STARTED
+2026-01-01 14:18:08 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:204 | ================================================================================
+2026-01-01 14:18:12 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [1/100] - Train Loss: 0.094513, Val Loss: 0.012286
+2026-01-01 14:18:56 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [10/100] - Train Loss: 0.038183, Val Loss: 0.013354
+2026-01-01 14:20:02 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:245 | Epoch [20/100] - Train Loss: 0.035712, Val Loss: 0.009795
+2026-01-01 14:20:15 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:255 | Early stopping at epoch 22
+2026-01-01 14:20:15 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:261 | ================================================================================
+2026-01-01 14:20:15 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:262 | TRAINING COMPLETE
+2026-01-01 14:20:15 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:263 | ================================================================================
+2026-01-01 14:20:15 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | train:264 | Best validation loss: 0.009018
+2026-01-01 14:20:16 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | _plot_training_history:342 | Training history saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141803\training_history.png
+2026-01-01 14:20:16 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:127 | Step 4: Evaluating model...
+2026-01-01 14:20:16 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | evaluate:277 | Evaluating model on test set...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | _plot_predictions:370 | Predictions plot saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141803\predictions.png
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:132 | Step 5: Saving artifacts...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | save_model:314 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141803\TireDegradationLSTM.pth
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.lstm_trainer[0m | save_model:326 | Scalers saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141803\scalers.pkl
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | save_experiment_metadata:75 | Experiment metadata saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\TireDegradationLSTM_20260101_141803\metadata.json
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:138 | Step 6: Registering model...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | register_model:105 | Model registered: TireDegradationLSTM v2.0.0
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:141 | ================================================================================
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:142 | TRAINING PIPELINE COMPLETE!
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:143 | ================================================================================
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | __init__:35 | Initialized PitWindowClassifier trainer - Experiment: PitWindowClassifier_20260101_142018
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:109 | ================================================================================
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:110 | STARTING TRAINING PIPELINE: PitWindowClassifier
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:111 | ================================================================================
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:114 | Step 1: Preparing data...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:45 | Loading data from D:\Programming\portfolio_projects\ai-race-engineer\ml\datasets\pit_window_features.csv
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:48 | Loaded 14072 samples
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:92 | Split: Train=9850, Val=2111, Test=2111
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:93 | Training class distribution:
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:94 |   Stay out (0): 7925 samples
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | prepare_data:95 |   Pit (1): 1925 samples
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:118 | Step 2: Building model...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:107 | Building XGBoost model
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:124 | Model config: {'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.1, 'subsample': 0.8, 'colsample_bytree': 0.8}
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:122 | Step 3: Training model...
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:139 | Class imbalance ratio: 4.12
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:107 | Building XGBoost model
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | build_model:124 | Model config: {'n_estimators': 200, 'max_depth': 6, 'learning_rate': 0.1, 'subsample': 0.8, 'colsample_bytree': 0.8, 'scale_pos_weight': 4.116883116883117}
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:144 | ================================================================================
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:145 | TRAINING XGBOOST PIT WINDOW CLASSIFIER
+2026-01-01 14:20:18 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:146 | ================================================================================
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:162 | ================================================================================
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:163 | TRAINING COMPLETE
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:164 | ================================================================================
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:165 | Validation F1 Score: 0.7653
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | train:166 | Validation ROC-AUC: 0.9516
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:252 | 
+Feature Importance:
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   tire_age                 : 0.1549
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   tire_compound_encoded    : 0.1447
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   race_progress            : 0.1407
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   air_temp                 : 0.1056
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   track_temp               : 0.1048
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   lap_number               : 0.0890
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   lap_time                 : 0.0823
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   position                 : 0.0757
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   driver_encoded           : 0.0520
+2026-01-01 14:20:19 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:254 |   degradation_rate         : 0.0503
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_feature_importance:265 | Feature importance plot saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\feature_importance.png
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:127 | Step 4: Evaluating model...
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:179 | Evaluating model on test set...
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:190 | 
+================================================================================
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:191 | MODEL PERFORMANCE
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:192 | ================================================================================
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:193 | 
+              precision    recall  f1-score   support
+
+    Stay Out     0.9665    0.9170    0.9411      1699
+     Pit Now     0.7174    0.8689    0.7859       412
+
+    accuracy                         0.9076      2111
+   macro avg     0.8420    0.8930    0.8635      2111
+weighted avg     0.9179    0.9076    0.9108      2111
+
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:200 | ROC-AUC Score: 0.9584
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:205 | PR-AUC Score: 0.8547
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:209 | 
+Confusion Matrix:
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:210 |                 Predicted
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:211 |                 Stay    Pit
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:212 | Actual Stay  [ 1558   141]
+2026-01-01 14:20:20 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | evaluate:213 |        Pit   [   54   358]
+2026-01-01 14:20:21 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_confusion_matrix:293 | Confusion matrix saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\confusion_matrix.png
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | _plot_roc_pr_curves:328 | ROC/PR curves saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\roc_pr_curves.png
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:132 | Step 5: Saving artifacts...
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | save_model:233 | Model saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\PitWindowClassifier.pkl
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.xgboost_trainer[0m | save_model:243 | Encoders saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\encoders.pkl
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | save_experiment_metadata:75 | Experiment metadata saved to D:\Programming\portfolio_projects\ai-race-engineer\ml\model_registry\experiments\PitWindowClassifier_20260101_142018\metadata.json
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:138 | Step 6: Registering model...
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | register_model:105 | Model registered: PitWindowClassifier v2.0.0
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:141 | ================================================================================
+2026-01-01 14:20:22 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:142 | TRAINING PIPELINE COMPLETE!
+2026-01-01 14:20:23 | [32mINFO[0m | [94mml.training.pipeline.base_trainer[0m | run_pipeline:143 | ================================================================================

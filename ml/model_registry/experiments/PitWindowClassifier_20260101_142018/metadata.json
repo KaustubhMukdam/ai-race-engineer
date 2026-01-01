@@ -1,0 +1,15 @@
+{
+  "model_name": "PitWindowClassifier",
+  "model_version": "2.0.0",
+  "experiment_name": "PitWindowClassifier_20260101_142018",
+  "timestamp": "2026-01-01T14:20:22.990676",
+  "metrics": {
+    "val_f1": 0.7652947719688543,
+    "val_roc_auc": 0.9515681459743268,
+    "n_estimators": 200,
+    "accuracy": 0.9076267171956419,
+    "roc_auc": 0.9583964296530797,
+    "pr_auc": 0.8547243131941897,
+    "f1_score": 0.7859495060373216
+  }
+}

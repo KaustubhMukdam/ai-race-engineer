@@ -1,0 +1,17 @@
+{
+  "model_name": "TireDegradationLSTM",
+  "model_version": "2.0.0",
+  "experiment_name": "TireDegradationLSTM_20260101_141037",
+  "timestamp": "2026-01-01T14:14:01.670917",
+  "metrics": {
+    "train_loss": 0.03639132509216197,
+    "val_loss": 0.008504216653915743,
+    "epochs_trained": 35,
+    "mae": 0.6879512071609497,
+    "mse": 0.9647716879844666,
+    "rmse": 0.9822279205889367,
+    "r2_score": 0.9906452894210815,
+    "mape": 0.7918277755379677,
+    "median_ae": 0.4988899230957031
+  }
+}
