@@ -4,10 +4,10 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'http://localhost:8000/api/:path*', // Your FastAPI backend
+        destination: 'http://localhost:8000/api/:path*',
       },
     ]
   },
 }
 
-module.exports = nextConfig
+export default nextConfig

@@ -15,3 +15,5 @@ monaco.py
 test_lstm_strategy.py
 ml/datasets
 tests/
+node_modules
+.idea

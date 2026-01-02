@@ -1,65 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { Activity, Gauge, TrendingUp, AlertTriangle, Radio, Zap } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts';
+'use client'
 
-// Mock WebSocket connection (you'll replace with real WebSocket)
-const useMockRaceData = () => {
-  const [raceData, setRaceData] = useState({
-    driver: 'VER',
-    position: 3,
-    currentLap: 25,
-    totalLaps: 58,
-    gapToLeader: 3.2,
-    gapToNext: 1.4,
-    tireCompound: 'MEDIUM',
-    tireAge: 15,
-    degradationRate: 0.0524,
-    predictedCliffLap: 28,
-    pitProbability: 0.32,
-    recommendedPitLap: 28,
-    trackTemp: 31.5,
-    airTemp: 26.7,
-    weather: 'Clear',
-    lstmUsed: true,
-    xgbUsed: true
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRaceData(prev => ({
-        ...prev,
-        currentLap: prev.currentLap + 1,
-        tireAge: prev.tireAge + 1,
-        degradationRate: prev.degradationRate + 0.001,
-        gapToLeader: prev.gapToLeader + (Math.random() - 0.5) * 0.2
-      }));
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  return raceData;
-};
+import React, { useEffect } from 'react'
+import { Activity, Gauge, TrendingUp, AlertTriangle, Radio, Zap, PlayCircle, PauseCircle } from 'lucide-react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts'
+import { useRaceStore } from '@/lib/store/race-store'
+import SessionSelector from '@/components/SessionSelector'
 
 // Generate mock tire degradation data
-const generateDegradationData = (tireAge, compound) => {
-  const baseTime = compound === 'SOFT' ? 78 : compound === 'MEDIUM' ? 80 : 82;
+const generateDegradationData = (tireAge: number, compound: string) => {
+  const baseTime = compound === 'SOFT' ? 78 : compound === 'MEDIUM' ? 80 : 82
   return Array.from({ length: Math.min(tireAge + 10, 30) }, (_, i) => ({
     lap: i + 1,
     lapTime: baseTime + (i * 0.05) + Math.random() * 0.2,
     predicted: baseTime + (i * 0.06)
-  }));
-};
+  }))
+}
 
 const F1Dashboard = () => {
-  const raceData = useMockRaceData();
-  const [selectedView, setSelectedView] = useState('overview');
-  const degradationData = generateDegradationData(raceData.tireAge, raceData.tireCompound);
+  const { 
+    raceData, 
+    strategyRecommendation,
+    isLive,
+    isLoading,
+    error,
+    startLiveMode,
+    stopLiveMode,
+    fetchStrategyRecommendation
+  } = useRaceStore()
 
-  const raceProgress = (raceData.currentLap / raceData.totalLaps) * 100;
-  const tireHealth = Math.max(0, 100 - (raceData.tireAge / 25 * 100));
+  // Fetch initial strategy recommendation on mount
+  useEffect(() => {
+    if (raceData && !strategyRecommendation) {
+      fetchStrategyRecommendation()
+    }
+  }, [raceData, strategyRecommendation])
+
+  if (!raceData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <Gauge className="w-16 h-16 text-blue-400 animate-spin mx-auto mb-4" />
+          <p className="text-xl text-gray-400">Loading race data...</p>
+        </div>
+      </div>
+    )
+  }
+
+  const degradationData = generateDegradationData(raceData.tireAge, raceData.tireCompound)
+  const raceProgress = (raceData.currentLap / raceData.totalLaps) * 100
+  const tireHealth = Math.max(0, 100 - (raceData.tireAge / 25 * 100))
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 text-white p-6">
+    <div className="min-h-screen text-white p-6">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between mb-4">
@@ -69,11 +61,35 @@ const F1Dashboard = () => {
             </h1>
             <p className="text-blue-300 mt-1">Real-time Strategy Dashboard</p>
           </div>
+          
           <div className="flex gap-2">
-            <div className="flex items-center gap-2 px-4 py-2 bg-green-500/20 border border-green-500 rounded-lg">
-              <Activity className="w-5 h-5 text-green-400 animate-pulse" />
-              <span className="text-sm font-semibold text-green-400">LIVE</span>
-            </div>
+            {/* Session Selector */}
+            <SessionSelector />
+
+            {/* Live Mode Toggle */}
+            <button
+              onClick={isLive ? stopLiveMode : startLiveMode}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all ${
+                isLive
+                  ? 'bg-green-500/20 border-2 border-green-500 text-green-400'
+                  : 'bg-gray-500/20 border-2 border-gray-500 text-gray-400 hover:bg-gray-500/30'
+              }`}
+            >
+              {isLive ? (
+                <>
+                  <Activity className="w-5 h-5 animate-pulse" />
+                  <span>LIVE</span>
+                  <PauseCircle className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <PlayCircle className="w-5 h-5" />
+                  <span>Start Live</span>
+                </>
+              )}
+            </button>
+
+            {/* Model Status Badges */}
             {raceData.lstmUsed && (
               <div className="px-3 py-2 bg-purple-500/20 border border-purple-500 rounded-lg">
                 <span className="text-xs text-purple-300">LSTM Active</span>
@@ -86,6 +102,14 @@ const F1Dashboard = () => {
             )}
           </div>
         </div>
+
+        {/* Error Display */}
+        {error && (
+          <div className="mb-4 p-4 bg-red-500/20 border border-red-500 rounded-lg flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-red-400" />
+            <span className="text-red-300">{error}</span>
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -297,35 +321,29 @@ const F1Dashboard = () => {
               </div>
             </div>
 
-            <div className="mt-4 p-4 bg-gradient-to-r from-blue-500/10 to-green-500/10 border border-blue-500/30 rounded-lg">
-              <h3 className="font-semibold text-blue-300 mb-2">Strategy Options</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center p-2 bg-slate-800/50 rounded">
-                  <span className="text-sm text-gray-300">2-Stop (MEDIUM → HARD)</span>
-                  <span className="text-xs text-green-400 font-semibold">Recommended</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-slate-800/30 rounded">
-                  <span className="text-sm text-gray-400">1-Stop (MEDIUM only)</span>
-                  <span className="text-xs text-yellow-400">Risky</span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-slate-800/30 rounded">
-                  <span className="text-sm text-gray-400">3-Stop (SOFT → MEDIUM → HARD)</span>
-                  <span className="text-xs text-gray-400">Too slow</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/50 rounded-lg flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm text-yellow-300 font-semibold">Multi-Agent Analysis</p>
-                <p className="text-xs text-gray-300 mt-1">
-                  LSTM tire model predicts cliff at lap {raceData.predictedCliffLap}. 
-                  XGBoost classifier suggests {raceData.pitProbability > 0.5 ? 'pitting now' : 'extending stint'}. 
-                  Strategy agent recommends lap {raceData.recommendedPitLap} for optimal undercut opportunity.
+            {/* LLM Strategy Recommendation */}
+            {strategyRecommendation && (
+              <div className="mt-4 p-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/30 rounded-lg">
+                <h3 className="font-semibold text-blue-300 mb-2 flex items-center gap-2">
+                  <Zap className="w-4 h-4" />
+                  LLM Strategy Analysis
+                </h3>
+                <p className="text-sm text-gray-300 whitespace-pre-line">
+                  {strategyRecommendation.recommendation}
                 </p>
+                <div className="mt-2 text-xs text-gray-500">
+                  Model: {strategyRecommendation.llm_model}
+                </div>
               </div>
-            </div>
+            )}
+
+            {/* Loading State */}
+            {isLoading && (
+              <div className="mt-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-center gap-3">
+                <Gauge className="w-5 h-5 text-blue-400 animate-spin" />
+                <span className="text-sm text-blue-300">Fetching AI strategy recommendation...</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -337,7 +355,7 @@ const F1Dashboard = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default F1Dashboard;
+export default F1Dashboard
