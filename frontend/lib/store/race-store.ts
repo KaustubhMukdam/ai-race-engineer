@@ -152,6 +152,27 @@ export const useRaceStore = create<RaceStore>((set, get) => ({
             },
           });
 
+          // Fetch pit probability from XGBoost
+          try {
+            const pitProb = await apiClient.getPitProbability(
+              raceData.driver,
+              sessionKey,
+              telemetry.current_lap
+            );
+            
+            if (pitProb.status === 'success') {
+              set((s) => ({
+                raceData: s.raceData ? {
+                  ...s.raceData,
+                  pitProbability: pitProb.pit_probability,
+                  xgbUsed: true,
+                } : null,
+              }));
+            }
+          } catch (error) {
+            console.error('Failed to fetch pit probability:', error);
+          }
+
           // Fetch strategy recommendation with real data
           await get().fetchStrategyRecommendation();
         } catch (error) {
@@ -191,13 +212,31 @@ export const useRaceStore = create<RaceStore>((set, get) => ({
         isLoading: false,
       });
 
-      // Update race data with ML model usage
+      // Parse XGBoost probability from recommendation text
+      let pitProbability = raceData.pitProbability;
+      let recommendedPitLap = raceData.recommendedPitLap;
+
+      // Try to extract pit probability from the response
+      const probMatch = response.recommendation.match(/probability[:\s]+(\d+\.?\d*)%?/i);
+      if (probMatch) {
+        pitProbability = parseFloat(probMatch[1]) / 100;
+      }
+
+      // Try to extract recommended pit lap
+      const lapMatch = response.recommendation.match(/lap[:\s]+(\d+)/i);
+      if (lapMatch) {
+        recommendedPitLap = parseInt(lapMatch[1]);
+      }
+
+      // Update race data with ML model usage and extracted values
       set((state) => ({
         raceData: state.raceData
           ? {
               ...state.raceData,
               lstmUsed: response.lstm_used,
               xgbUsed: response.xgb_used,
+              pitProbability: pitProbability,
+              recommendedPitLap: recommendedPitLap,
             }
           : null,
       }));
@@ -310,9 +349,31 @@ export const useRaceStore = create<RaceStore>((set, get) => ({
             },
           });
 
-          // Fetch strategy every 5 laps
-          if (nextLap % 5 === 0) {
+          // Fetch strategy and pit probability
+          if (nextLap % 3 === 0) {
+            // Fetch AI strategy
             get().fetchStrategyRecommendation();
+            
+            // Fetch XGBoost pit probability
+            try {
+              const pitProb = await apiClient.getPitProbability(
+                state.raceData.driver,
+                sessionData.sessionKey!,
+                nextLap
+              );
+              
+              if (pitProb.status === 'success') {
+                set((s) => ({
+                  raceData: s.raceData ? {
+                    ...s.raceData,
+                    pitProbability: pitProb.pit_probability,
+                    xgbUsed: true,
+                  } : null,
+                }));
+              }
+            } catch (error) {
+              console.error('Failed to fetch pit probability:', error);
+            }
           }
         }
       } catch (error) {

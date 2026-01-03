@@ -207,6 +207,18 @@ class RaceEngineerAPI {
     return response.json();
   }
 
+  async getPitProbability(driver: string, sessionKey?: string, currentLap?: number) {
+    const params = new URLSearchParams();
+    if (sessionKey) params.append('session_key', sessionKey);
+    if (currentLap) params.append('current_lap', currentLap.toString());
+
+    const response = await fetch(
+      `${this.baseURL}/telemetry/pit-probability/${driver}?${params}`
+    );
+    if (!response.ok) throw new Error('Failed to fetch pit probability');
+    return response.json();
+  }
+
   async compareDrivers(
     driver1: string,
     driver2: string,

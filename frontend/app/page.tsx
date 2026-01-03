@@ -115,6 +115,20 @@ const F1Dashboard = () => {
             <span className="text-red-300">{error}</span>
           </div>
         )}
+
+        {/* Wet Tire Warning */}
+        {raceData && (raceData.tireCompound === 'INTERMEDIATE' || raceData.tireCompound === 'WET') && (
+          <div className="mb-4 p-4 bg-yellow-500/20 border border-yellow-500 rounded-lg flex items-center gap-2">
+            <AlertTriangle className="w-5 h-5 text-yellow-400" />
+            <div>
+              <div className="text-yellow-300 font-semibold">Wet Conditions Detected</div>
+              <div className="text-sm text-gray-400 mt-1">
+                AI predictions are optimized for dry tires (SOFT/MEDIUM/HARD). 
+                Strategy recommendations may be less accurate for {raceData.tireCompound} tires.
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
