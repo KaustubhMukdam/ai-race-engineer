@@ -109,28 +109,54 @@ export const useRaceStore = create<RaceStore>((set, get) => ({
         force_reload: false,
       });
 
+      const sessionKey = response.session_key;
+
       set({
         sessionData: {
           year,
           event,
           session,
-          sessionKey: response.session_key,
+          sessionKey,
           cached: response.cached,
           loaded: true,
         },
         isLoading: false,
       });
 
-      // Update race data with session info
+      // Fetch real telemetry for current driver
       const { raceData } = get();
       if (raceData) {
-        set({
-          raceData: {
-            ...raceData,
-            sessionKey: response.session_key,
-            raceName: `${year}_${event.replace(/\s+/g, '_')}_${session}`,
-          },
-        });
+        try {
+          const telemetry = await apiClient.getCurrentTelemetry(
+            raceData.driver,
+            sessionKey
+          );
+
+          // Update race data with real telemetry
+          set({
+            raceData: {
+              ...raceData,
+              sessionKey,
+              raceName: sessionKey,
+              currentLap: telemetry.current_lap,
+              totalLaps: telemetry.total_laps,
+              position: telemetry.position,
+              tireCompound: telemetry.tire_compound,
+              tireAge: telemetry.tire_age,
+              trackTemp: telemetry.track_temp,
+              airTemp: telemetry.air_temp,
+              degradationRate: telemetry.degradation_rate,
+              gapToLeader: telemetry.gap_ahead || 0,
+              gapToNext: telemetry.gap_behind || 0,
+              weather: telemetry.weather,
+            },
+          });
+
+          // Fetch strategy recommendation with real data
+          await get().fetchStrategyRecommendation();
+        } catch (error) {
+          console.error('Failed to fetch telemetry:', error);
+        }
       }
     } catch (error: any) {
       set({
@@ -184,36 +210,129 @@ export const useRaceStore = create<RaceStore>((set, get) => ({
   },
 
   startLiveMode: () => {
+    const { raceData, sessionData } = get();
+    if (!raceData || !sessionData) return;
+
     set({ isLive: true });
-    
-    // Simulate live updates every 3 seconds
-    const interval = setInterval(() => {
-      const { raceData, isLive } = get();
-      if (!isLive || !raceData) {
+
+    // Start interval to advance laps
+    const interval = setInterval(async () => {
+      const state = get();
+      if (!state.isLive || !state.raceData) {
         clearInterval(interval);
         return;
       }
 
-      // Increment lap and update tire age
-      set({
-        raceData: {
-          ...raceData,
-          currentLap: raceData.currentLap + 1,
-          tireAge: raceData.tireAge + 1,
-          degradationRate: raceData.degradationRate + 0.001,
-          gapToLeader: raceData.gapToLeader + (Math.random() - 0.5) * 0.2,
-        },
-      });
+      const currentLap = state.raceData.currentLap;
+      const totalLaps = state.raceData.totalLaps;
 
-      // Fetch new strategy recommendation every 5 laps
-      if (raceData.currentLap % 5 === 0) {
-        get().fetchStrategyRecommendation();
+      // Stop at end of race
+      if (currentLap >= totalLaps) {
+        clearInterval(interval);
+        set({ isLive: false });
+        return;
       }
-    }, 3000);
+
+      const nextLap = currentLap + 1;
+
+      try {
+        // Fetch real telemetry for next lap
+        const history = await apiClient.getTelemetryHistory(
+          state.raceData.driver,
+          sessionData.sessionKey!,
+          nextLap,
+          nextLap
+        );
+
+        if (history.laps.length > 0) {
+          const lapData = history.laps[0];
+
+          // Calculate degradation rate from recent laps
+          const recentHistory = await apiClient.getTelemetryHistory(
+            state.raceData.driver,
+            sessionData.sessionKey!,
+            Math.max(1, nextLap - 5),
+            nextLap
+          );
+
+          let degradationRate = 0;
+          if (recentHistory.laps.length >= 2) {
+            const firstLap = recentHistory.laps[0].LapTime_Seconds;
+            const lastLap = recentHistory.laps[recentHistory.laps.length - 1].LapTime_Seconds;
+            degradationRate = (lastLap - firstLap) / recentHistory.laps.length;
+          }
+
+          // Get current telemetry for position and gaps
+          const currentTelemetry = await apiClient.getCurrentTelemetry(
+            state.raceData.driver,
+            sessionData.sessionKey!
+          );
+
+          // Calculate predicted cliff lap (simple heuristic)
+          const tireAge = lapData.TyreLife;
+          let predictedCliffLap = nextLap;
+          if (lapData.Compound === 'SOFT') {
+            predictedCliffLap = nextLap + Math.max(0, 18 - tireAge);
+          } else if (lapData.Compound === 'MEDIUM') {
+            predictedCliffLap = nextLap + Math.max(0, 25 - tireAge);
+          } else if (lapData.Compound === 'HARD') {
+            predictedCliffLap = nextLap + Math.max(0, 35 - tireAge);
+          }
+
+          // Calculate pit probability (simple heuristic based on tire age)
+          let pitProbability = 0;
+          if (lapData.Compound === 'SOFT' && tireAge > 15) {
+            pitProbability = Math.min(0.9, (tireAge - 15) / 10);
+          } else if (lapData.Compound === 'MEDIUM' && tireAge > 20) {
+            pitProbability = Math.min(0.9, (tireAge - 20) / 15);
+          } else if (lapData.Compound === 'HARD' && tireAge > 30) {
+            pitProbability = Math.min(0.9, (tireAge - 30) / 20);
+          }
+
+          // Recommended pit lap
+          const recommendedPitLap = predictedCliffLap - 2; // Pit 2 laps before cliff
+
+          set({
+            raceData: {
+              ...state.raceData,
+              currentLap: lapData.LapNumber,
+              tireAge: lapData.TyreLife,
+              tireCompound: lapData.Compound,
+              trackTemp: lapData.TrackTemp,
+              airTemp: lapData.AirTemp,
+              degradationRate: degradationRate,
+              position: currentTelemetry.position,
+              gapToLeader: currentTelemetry.gap_ahead || 0,
+              gapToNext: currentTelemetry.gap_behind || 0,
+              predictedCliffLap: predictedCliffLap,
+              pitProbability: pitProbability,
+              recommendedPitLap: recommendedPitLap,
+            },
+          });
+
+          // Fetch strategy every 5 laps
+          if (nextLap % 5 === 0) {
+            get().fetchStrategyRecommendation();
+          }
+        }
+      } catch (error) {
+        console.error('Live mode error:', error);
+      }
+    }, 2000); // Advance every 2 seconds
+
+    // Store interval ID for cleanup
+    (get as any).liveInterval = interval;
   },
 
   stopLiveMode: () => {
     set({ isLive: false });
+    
+    // Clear interval
+    const interval = (get as any).liveInterval;
+    if (interval) {
+      clearInterval(interval);
+      (get as any).liveInterval = null;
+    }
   },
 
   reset: () => {

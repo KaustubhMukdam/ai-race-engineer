@@ -176,6 +176,57 @@ class RaceEngineerAPI {
     return response.json();
   }
 
+  // ==================== TELEMETRY ENDPOINTS ====================
+
+  async getCurrentTelemetry(driver: string, sessionKey?: string) {
+    const params = new URLSearchParams();
+    if (sessionKey) params.append('session_key', sessionKey);
+
+    const response = await fetch(
+      `${this.baseURL}/telemetry/current/${driver}?${params}`
+    );
+    if (!response.ok) throw new Error('Failed to fetch current telemetry');
+    return response.json();
+  }
+
+  async getTelemetryHistory(
+    driver: string,
+    sessionKey?: string,
+    startLap?: number,
+    endLap?: number
+  ) {
+    const params = new URLSearchParams();
+    if (sessionKey) params.append('session_key', sessionKey);
+    if (startLap) params.append('start_lap', startLap.toString());
+    if (endLap) params.append('end_lap', endLap.toString());
+
+    const response = await fetch(
+      `${this.baseURL}/telemetry/history/${driver}?${params}`
+    );
+    if (!response.ok) throw new Error('Failed to fetch telemetry history');
+    return response.json();
+  }
+
+  async compareDrivers(
+    driver1: string,
+    driver2: string,
+    sessionKey?: string,
+    metric: string = 'lap_time'
+  ) {
+    const params = new URLSearchParams({
+      driver1,
+      driver2,
+      metric,
+    });
+    if (sessionKey) params.append('session_key', sessionKey);
+
+    const response = await fetch(
+      `${this.baseURL}/telemetry/comparison?${params}`
+    );
+    if (!response.ok) throw new Error('Driver comparison failed');
+    return response.json();
+  }
+
   // ==================== VERSTAPPEN SIMULATOR ====================
 
   async simulateVerstappenStrategy(

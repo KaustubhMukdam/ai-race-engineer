@@ -1,0 +1,776 @@
+2026-01-03 11:58:54 | [32mINFO[0m | [94mbackend.app[0m | lifespan:27 | Starting AI Race Engineer API...
+2026-01-03 11:58:54 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2026-01-03 11:58:54 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2026-01-03 11:58:54 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2026-01-03 11:58:54 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2026-01-03 11:58:54 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2026-01-03 11:58:54 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2026-01-03 11:58:54 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2026-01-03 11:58:54 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:57 | Strategy agent initialized successfully
+2026-01-03 11:58:54 | [32mINFO[0m | [94mbackend.app[0m | lifespan:30 | Strategy agent loaded successfully
+2026-01-03 11:58:54 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2026-01-03 11:58:54 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2026-01-03 11:58:54 | [32mINFO[0m | [94mbackend.app[0m | lifespan:33 | Session manager loaded successfully
+2026-01-03 11:58:55 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2026-01-03 11:58:55 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2026-01-03 11:58:55 | [32mINFO[0m | [94mbackend.app[0m | lifespan:35 | Verstappen simulator loaded successfully
+2026-01-03 11:58:55 | [32mINFO[0m | [94mbackend.app[0m | lifespan:36 | All components loaded successfully
+2026-01-03 12:06:45 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:06:45 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:06:45 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:06:46 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:06:48 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 450, Total: 1166
+2026-01-03 12:06:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:06:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:06:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:06:49 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:06:51 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 445, Total: 1161
+2026-01-03 12:06:51 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:06:54 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:07:01 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2023
+2026-01-03 12:07:02 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 23 events for 2023 season
+2026-01-03 12:07:16 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:07:16 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:120 | Loading fresh session: 2023_Japanese_Grand_Prix_Race
+2026-01-03 12:07:16 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:69 | Loading 2023 Japanese Grand Prix Race
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:80 | Session loaded in 114.54s
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:81 | Session date: 2023-09-24 05:00:00
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | load_session:82 | Circuit: Japanese Grand Prix
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_lap_times:136 | Extracting lap times
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_lap_times:146 | Extracted 880 laps from 20 drivers
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:224 | Exported lap times to D:\Programming\portfolio_projects\ai-race-engineer\data\processed\2023_Japanese_Grand_Prix_Race\lap_times.csv
+2026-01-03 12:09:10 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_tire_strategy:164 | Extracting tire strategies
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_tire_strategy:187 | Extracted strategies for 20 drivers
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:233 | Exported tire strategies to D:\Programming\portfolio_projects\ai-race-engineer\data\processed\2023_Japanese_Grand_Prix_Race\tire_strategies.json
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:240 | Exported weather data to D:\Programming\portfolio_projects\ai-race-engineer\data\processed\2023_Japanese_Grand_Prix_Race\weather.csv
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | export_session_data:242 | All session data exported to D:\Programming\portfolio_projects\ai-race-engineer\data\processed\2023_Japanese_Grand_Prix_Race
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:37 | Loaded 880 laps
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:44 | Loaded strategies for 20 drivers
+2026-01-03 12:09:12 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | load_session_data:50 | Loaded 158 weather records
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | process_lap_data:103 | Processed 785 laps with 14 features
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | merge_weather_data:132 | Merged weather data with lap data
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | calculate_tire_degradation:200 | Calculated degradation for 50 stints
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | identify_optimal_pit_windows:245 | Identified pit windows: {'MEDIUM': [14, 20], 'HARD': [26, 32], 'SOFT': [7, 13]}
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.preprocess_telemetry[0m | export_processed_data:290 | All processed data exported to D:\Programming\portfolio_projects\ai-race-engineer\data\processed\2023_Japanese_Grand_Prix_Race_processed
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | _save_cache_index:45 | Cache index saved
+2026-01-03 12:09:13 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:169 | Session 2023_Japanese_Grand_Prix_Race processed and cached successfully
+2026-01-03 12:15:40 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:15:41 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:31:35 | [32mINFO[0m | [94mbackend.app[0m | lifespan:43 | Shutting down AI Race Engineer API...
+2026-01-03 12:31:55 | [32mINFO[0m | [94mbackend.app[0m | lifespan:27 | Starting AI Race Engineer API...
+2026-01-03 12:31:56 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2026-01-03 12:31:56 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2026-01-03 12:31:56 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2026-01-03 12:31:56 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2026-01-03 12:31:56 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2026-01-03 12:31:56 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2026-01-03 12:31:56 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2026-01-03 12:31:56 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:57 | Strategy agent initialized successfully
+2026-01-03 12:31:56 | [32mINFO[0m | [94mbackend.app[0m | lifespan:30 | Strategy agent loaded successfully
+2026-01-03 12:31:56 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2026-01-03 12:31:56 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2026-01-03 12:31:56 | [32mINFO[0m | [94mbackend.app[0m | lifespan:33 | Session manager loaded successfully
+2026-01-03 12:31:58 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2026-01-03 12:31:58 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2026-01-03 12:31:58 | [32mINFO[0m | [94mbackend.app[0m | lifespan:35 | Verstappen simulator loaded successfully
+2026-01-03 12:31:58 | [32mINFO[0m | [94mbackend.app[0m | lifespan:36 | All components loaded successfully
+2026-01-03 12:33:24 | [32mINFO[0m | [94mbackend.app[0m | lifespan:43 | Shutting down AI Race Engineer API...
+2026-01-03 12:33:32 | [32mINFO[0m | [94mbackend.app[0m | lifespan:28 | Starting AI Race Engineer API...
+2026-01-03 12:33:32 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2026-01-03 12:33:32 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2026-01-03 12:33:32 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2026-01-03 12:33:32 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2026-01-03 12:33:32 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2026-01-03 12:33:32 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2026-01-03 12:33:32 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2026-01-03 12:33:32 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:57 | Strategy agent initialized successfully
+2026-01-03 12:33:32 | [32mINFO[0m | [94mbackend.app[0m | lifespan:31 | Strategy agent loaded successfully
+2026-01-03 12:33:32 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2026-01-03 12:33:32 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2026-01-03 12:33:32 | [32mINFO[0m | [94mbackend.app[0m | lifespan:34 | Session manager loaded successfully
+2026-01-03 12:33:33 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2026-01-03 12:33:33 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2026-01-03 12:33:33 | [32mINFO[0m | [94mbackend.app[0m | lifespan:36 | Verstappen simulator loaded successfully
+2026-01-03 12:33:33 | [32mINFO[0m | [94mbackend.app[0m | lifespan:37 | All components loaded successfully
+2026-01-03 12:33:35 | [32mINFO[0m | [94mbackend.app[0m | lifespan:44 | Shutting down AI Race Engineer API...
+2026-01-03 12:35:16 | [32mINFO[0m | [94mbackend.app[0m | lifespan:28 | Starting AI Race Engineer API...
+2026-01-03 12:35:16 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized StrategyAgent with model llama-3.3-70b-versatile
+2026-01-03 12:35:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | __init__:110 | Using device: cpu
+2026-01-03 12:35:16 | [32mINFO[0m | [94mml.models.tire_degradation_lstm[0m | load_model:460 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\tire_degradation_lstm.pth
+2026-01-03 12:35:16 | [32mINFO[0m | [94mml.models.lstm_interface[0m | _try_load_model:40 | LSTM model loaded successfully for inference
+2026-01-03 12:35:16 | [32mINFO[0m | [94mml.models.pit_window_classifier[0m | load_model:255 | Model loaded from D:\Programming\portfolio_projects\ai-race-engineer\ml\saved_models\pit_window_xgb.pkl
+2026-01-03 12:35:16 | [32mINFO[0m | [94magents.strategy_agent[0m | __init__:47 | Pit window classifier loaded
+2026-01-03 12:35:16 | [32mINFO[0m | [94magents.strategy_agent[0m | load_race_data:57 | Loaded race data: 42 stints
+2026-01-03 12:35:16 | [32mINFO[0m | [94mbackend.routes.strategy[0m | initialize_agent:57 | Strategy agent initialized successfully
+2026-01-03 12:35:16 | [32mINFO[0m | [94mbackend.app[0m | lifespan:31 | Strategy agent loaded successfully
+2026-01-03 12:35:16 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | __init__:24 | FastF1 cache enabled at: data\raw\fastf1_cache
+2026-01-03 12:35:16 | [32mINFO[0m | [94mbackend.routes.sessions[0m | initialize_session_manager:31 | Session manager initialized successfully
+2026-01-03 12:35:16 | [32mINFO[0m | [94mbackend.app[0m | lifespan:34 | Session manager loaded successfully
+2026-01-03 12:35:17 | [32mINFO[0m | [94magents.base_agent[0m | __init__:42 | Initialized VerstappenSimulator with model llama-3.3-70b-versatile
+2026-01-03 12:35:17 | [32mINFO[0m | [94mbackend.routes.verstappen[0m | initialize_simulator:31 | Verstappen simulator initialized successfully
+2026-01-03 12:35:17 | [32mINFO[0m | [94mbackend.app[0m | lifespan:36 | Verstappen simulator loaded successfully
+2026-01-03 12:35:17 | [32mINFO[0m | [94mbackend.app[0m | lifespan:37 | All components loaded successfully
+2026-01-03 12:36:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:36:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:36:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:36:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:36:15 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 434, Total: 1150
+2026-01-03 12:36:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:36:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:36:16 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:36:17 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:36:18 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 388, Total: 1104
+2026-01-03 12:36:18 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:36:21 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:39:42 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2023
+2026-01-03 12:39:46 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 23 events for 2023 season
+2026-01-03 12:39:49 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2024
+2026-01-03 12:39:51 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 25 events for 2024 season
+2026-01-03 12:40:02 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2023
+2026-01-03 12:40:02 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 23 events for 2023 season
+2026-01-03 12:40:11 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:40:11 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 53
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for VER
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:40:11 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0308s/lap
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 1, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.030799999999999272, 'lap_time': 88.047}
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008529365062713623, 'stay_out_probability': 0.9914706349372864, 'confidence': 0.9914706349372864, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: 0.0308'}
+2026-01-03 12:40:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:40:20 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 687, Completion: 358, Total: 1045
+2026-01-03 12:42:11 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:42:21 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:42:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for PER on lap 25
+2026-01-03 12:42:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:42:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:42:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:42:22 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:42:27 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 462, Total: 1178
+2026-01-03 12:42:27 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:42:27 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:42:27 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:42:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:42:31 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 397, Total: 1113
+2026-01-03 12:42:31 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:42:31 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:42:48 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2023
+2026-01-03 12:42:48 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 23 events for 2023 season
+2026-01-03 12:42:54 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:42:54 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 53
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for LEC
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:42:54 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0568s/lap
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 19, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 6, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.056800000000001204, 'lap_time': 88.455}
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0166217889636755, 'stay_out_probability': 0.9833782315254211, 'confidence': 0.9833782315254211, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 19, Deg: 0.0568'}
+2026-01-03 12:42:54 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:42:56 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 697, Completion: 371, Total: 1068
+2026-01-03 12:43:28 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:43:28 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 53
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for VER
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:43:28 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0308s/lap
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 1, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.030799999999999272, 'lap_time': 88.047}
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008529365062713623, 'stay_out_probability': 0.9914706349372864, 'confidence': 0.9914706349372864, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: 0.0308'}
+2026-01-03 12:43:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:43:33 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 687, Completion: 425, Total: 1112
+2026-01-03 12:44:09 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:44:09 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 53
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for LEC
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:44:10 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0568s/lap
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 19, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 6, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.056800000000001204, 'lap_time': 88.455}
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0166217889636755, 'stay_out_probability': 0.9833782315254211, 'confidence': 0.9833782315254211, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 19, Deg: 0.0568'}
+2026-01-03 12:44:10 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:44:12 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 697, Completion: 351, Total: 1048
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 12:49:15 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:49:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 463, Total: 1179
+2026-01-03 12:50:17 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 12:50:17 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 53
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for VER
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:50:17 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0308s/lap
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 1, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.030799999999999272, 'lap_time': 88.047}
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008529365062713623, 'stay_out_probability': 0.9914706349372864, 'confidence': 0.9914706349372864, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: 0.0308'}
+2026-01-03 12:50:17 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:50:19 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 687, Completion: 441, Total: 1128
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 27
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 25 recent laps for VER
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0186s/lap over next 20 laps, total time loss -97.750s vs baseline 90.268s.
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0186s/lap over next 20 laps, total time loss -97.750s vs baseline 90.268s.
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 11, 'tire_compound': 'MEDIUM', 'lap_number': 27, 'race_progress': 0.5094339622641509, 'position': 1, 'track_temp': 39.1, 'air_temp': 27.4, 'degradation_rate': -0.0186, 'lap_time': 90.268}
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.04569195955991745, 'stay_out_probability': 0.954308032989502, 'confidence': 0.954308032989502, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 11, Deg: -0.0186'}
+2026-01-03 12:50:36 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:50:38 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 437, Total: 1151
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 30
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 28 recent laps for VER
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0248s/lap over next 20 laps, total time loss -129.157s vs baseline 91.857s.
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0248s/lap over next 20 laps, total time loss -129.157s vs baseline 91.857s.
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 14, 'tire_compound': 'MEDIUM', 'lap_number': 30, 'race_progress': 0.5660377358490566, 'position': 1, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.0248, 'lap_time': 91.857}
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.6918351650238037, 'stay_out_probability': 0.3081648349761963, 'confidence': 0.6918351650238037, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 14, Deg: -0.0248'}
+2026-01-03 12:50:51 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 406, Total: 1120
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 30
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 28 recent laps for VER
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0248s/lap over next 20 laps, total time loss -129.157s vs baseline 91.857s.
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0248s/lap over next 20 laps, total time loss -129.157s vs baseline 91.857s.
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 14, 'tire_compound': 'MEDIUM', 'lap_number': 30, 'race_progress': 0.5660377358490566, 'position': 1, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.0248, 'lap_time': 91.857}
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.6918351650238037, 'stay_out_probability': 0.3081648349761963, 'confidence': 0.6918351650238037, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 14, Deg: -0.0248'}
+2026-01-03 12:50:55 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:02 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 394, Total: 1108
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 35
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 33 recent laps for VER
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0134s/lap over next 18 laps, total time loss -54.563s vs baseline 88.409s.
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0134s/lap over next 18 laps, total time loss -54.563s vs baseline 88.409s.
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 19, 'tire_compound': 'MEDIUM', 'lap_number': 35, 'race_progress': 0.660377358490566, 'position': 1, 'track_temp': 37.7, 'air_temp': 27.2, 'degradation_rate': -0.0134, 'lap_time': 88.40899999999999}
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.8559789061546326, 'stay_out_probability': 0.14402109384536743, 'confidence': 0.8559789061546326, 'threshold_used': 0.3, 'reason': 'Tire: MEDIUM, Age: 19, Deg: -0.0134'}
+2026-01-03 12:51:10 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 377, Total: 1091
+2026-01-03 12:51:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 40
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 38 recent laps for VER
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0172s/lap over next 13 laps, total time loss -37.969s vs baseline 88.296s.
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0172s/lap over next 13 laps, total time loss -37.969s vs baseline 88.296s.
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 3, 'tire_compound': 'HARD', 'lap_number': 40, 'race_progress': 0.7547169811320755, 'position': 1, 'track_temp': 37.3, 'air_temp': 27.3, 'degradation_rate': -0.0172, 'lap_time': 88.29599999999999}
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0009666981059126556, 'stay_out_probability': 0.9990332722663879, 'confidence': 0.9990332722663879, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 3, Deg: -0.0172'}
+2026-01-03 12:51:34 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 713, Completion: 393, Total: 1106
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 36
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 34 recent laps for VER
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0172s/lap over next 17 laps, total time loss -63.277s vs baseline 89.111s.
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0172s/lap over next 17 laps, total time loss -63.277s vs baseline 89.111s.
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 20, 'tire_compound': 'MEDIUM', 'lap_number': 36, 'race_progress': 0.6792452830188679, 'position': 1, 'track_temp': 37.4, 'air_temp': 27.3, 'degradation_rate': -0.0172, 'lap_time': 89.111}
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.9095590710639954, 'stay_out_probability': 0.09044092893600464, 'confidence': 0.9095590710639954, 'threshold_used': 0.3, 'reason': 'Tire: MEDIUM, Age: 20, Deg: -0.0172'}
+2026-01-03 12:51:37 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 407, Total: 1121
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 31
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 29 recent laps for VER
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.1241s/lap over next 20 laps, total time loss -677.646s vs baseline 119.495s.
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.1241s/lap over next 20 laps, total time loss -677.646s vs baseline 119.495s.
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 31, 'race_progress': 0.5849056603773585, 'position': 1, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.1241, 'lap_time': 119.495}
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.9605039358139038, 'stay_out_probability': 0.03949606418609619, 'confidence': 0.9605039358139038, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.1241'}
+2026-01-03 12:51:40 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 415, Total: 1129
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 26
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 24 recent laps for VER
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0171s/lap over next 20 laps, total time loss -89.479s vs baseline 89.852s.
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0171s/lap over next 20 laps, total time loss -89.479s vs baseline 89.852s.
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 10, 'tire_compound': 'MEDIUM', 'lap_number': 26, 'race_progress': 0.49056603773584906, 'position': 1, 'track_temp': 39.1, 'air_temp': 27.4, 'degradation_rate': -0.0171, 'lap_time': 89.852}
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.016399916261434555, 'stay_out_probability': 0.9836000800132751, 'confidence': 0.9836000800132751, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 10, Deg: -0.0171'}
+2026-01-03 12:51:48 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 398, Total: 1112
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 21
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 19 recent laps for VER
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0173s/lap over next 20 laps, total time loss -92.857s vs baseline 90.004s.
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0173s/lap over next 20 laps, total time loss -92.857s vs baseline 90.004s.
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 5, 'tire_compound': 'MEDIUM', 'lap_number': 21, 'race_progress': 0.39622641509433965, 'position': 1, 'track_temp': 40.8, 'air_temp': 27.3, 'degradation_rate': -0.0173, 'lap_time': 90.004}
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.00199527177028358, 'stay_out_probability': 0.9980047345161438, 'confidence': 0.9980047345161438, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 5, Deg: -0.0173'}
+2026-01-03 12:51:51 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 434, Total: 1148
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 16
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 14 recent laps for VER
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0165s/lap over next 20 laps, total time loss -90.886s vs baseline 89.876s.
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0165s/lap over next 20 laps, total time loss -90.886s vs baseline 89.876s.
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'MEDIUM', 'lap_number': 16, 'race_progress': 0.3018867924528302, 'position': 1, 'track_temp': 43.1, 'air_temp': 27.3, 'degradation_rate': -0.0165, 'lap_time': 89.876}
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.6951043009757996, 'stay_out_probability': 0.30489569902420044, 'confidence': 0.6951043009757996, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 16, Deg: -0.0165'}
+2026-01-03 12:51:53 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:51:55 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 714, Completion: 388, Total: 1102
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 11
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 9 recent laps for VER
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.2074s/lap
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 11, 'tire_compound': 'MEDIUM', 'lap_number': 11, 'race_progress': 0.20754716981132076, 'position': 1, 'track_temp': 43.3, 'air_temp': 27.3, 'degradation_rate': 0.2073999999999984, 'lap_time': 90.449}
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.24210122227668762, 'stay_out_probability': 0.7578988075256348, 'confidence': 0.7578988075256348, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 11, Deg: 0.2074'}
+2026-01-03 12:51:57 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 688, Completion: 375, Total: 1063
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 6
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 4 recent laps for VER
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P1 from race_context
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 6, 'tire_compound': 'MEDIUM', 'lap_number': 6, 'race_progress': 0.11320754716981132, 'position': 1, 'track_temp': 42.4, 'air_temp': 27.1, 'degradation_rate': 0.0, 'lap_time': 89.813}
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.01591966114938259, 'stay_out_probability': 0.9840803146362305, 'confidence': 0.9840803146362305, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 6, Deg: 0.0000'}
+2026-01-03 12:52:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:52:05 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 688, Completion: 413, Total: 1101
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 53
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for LEC
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:52:13 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0568s/lap
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 19, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 6, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.056800000000001204, 'lap_time': 88.455}
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0166217889636755, 'stay_out_probability': 0.9833782315254211, 'confidence': 0.9833782315254211, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 19, Deg: 0.0568'}
+2026-01-03 12:52:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:52:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 697, Completion: 422, Total: 1119
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 6
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 4 recent laps for LEC
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 6, 'tire_compound': 'MEDIUM', 'lap_number': 6, 'race_progress': 0.11320754716981132, 'position': 6, 'track_temp': 42.4, 'air_temp': 27.1, 'degradation_rate': 0.0, 'lap_time': 89.753}
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.207438126206398, 'stay_out_probability': 0.7925618886947632, 'confidence': 0.7925618886947632, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 6, Deg: 0.0000'}
+2026-01-03 12:52:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:02 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 698, Completion: 387, Total: 1085
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 10
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 8 recent laps for LEC
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0320s/lap
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 10, 'tire_compound': 'MEDIUM', 'lap_number': 10, 'race_progress': 0.18867924528301888, 'position': 6, 'track_temp': 43.5, 'air_temp': 27.2, 'degradation_rate': 0.03199999999999932, 'lap_time': 89.913}
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.20797519385814667, 'stay_out_probability': 0.7920247912406921, 'confidence': 0.7920247912406921, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 10, Deg: 0.0320'}
+2026-01-03 12:53:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 698, Completion: 373, Total: 1071
+2026-01-03 12:53:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 15
+2026-01-03 12:53:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for LEC
+2026-01-03 12:53:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0153s/lap over next 20 laps, total time loss -83.767s vs baseline 89.516s.
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0153s/lap over next 20 laps, total time loss -83.767s vs baseline 89.516s.
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.2830188679245283, 'position': 6, 'track_temp': 43.1, 'air_temp': 27.2, 'degradation_rate': -0.0153, 'lap_time': 89.51599999999999}
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.8652845025062561, 'stay_out_probability': 0.1347154974937439, 'confidence': 0.8652845025062561, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0153'}
+2026-01-03 12:53:22 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:23 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 406, Total: 1130
+2026-01-03 12:53:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 20
+2026-01-03 12:53:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 18 recent laps for LEC
+2026-01-03 12:53:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 3, 'tire_compound': 'MEDIUM', 'lap_number': 20, 'race_progress': 0.37735849056603776, 'position': 6, 'track_temp': 42.3, 'air_temp': 27.3, 'degradation_rate': -0.0178, 'lap_time': 90.082}
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0052101584151387215, 'stay_out_probability': 0.9947898387908936, 'confidence': 0.9947898387908936, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 3, Deg: -0.0178'}
+2026-01-03 12:53:32 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:34 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 401, Total: 1125
+2026-01-03 12:53:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 25
+2026-01-03 12:53:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for LEC
+2026-01-03 12:53:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 8, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.4716981132075472, 'position': 6, 'track_temp': 39.6, 'air_temp': 27.4, 'degradation_rate': -0.0146, 'lap_time': 89.185}
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.012294560670852661, 'stay_out_probability': 0.9877054691314697, 'confidence': 0.9877054691314697, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 8, Deg: -0.0146'}
+2026-01-03 12:53:42 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:44 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 418, Total: 1142
+2026-01-03 12:53:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 30
+2026-01-03 12:53:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 28 recent laps for LEC
+2026-01-03 12:53:51 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 13, 'tire_compound': 'MEDIUM', 'lap_number': 30, 'race_progress': 0.5660377358490566, 'position': 6, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.0126, 'lap_time': 88.56}
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.5601046085357666, 'stay_out_probability': 0.4398953914642334, 'confidence': 0.5601046085357666, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 13, Deg: -0.0126'}
+2026-01-03 12:53:52 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:53:54 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 400, Total: 1124
+2026-01-03 12:54:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 35
+2026-01-03 12:54:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 33 recent laps for LEC
+2026-01-03 12:54:01 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 1, 'tire_compound': 'HARD', 'lap_number': 35, 'race_progress': 0.660377358490566, 'position': 6, 'track_temp': 37.6, 'air_temp': 27.2, 'degradation_rate': -0.0137, 'lap_time': 88.536}
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004772134590893984, 'stay_out_probability': 0.9952278733253479, 'confidence': 0.9952278733253479, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 1, Deg: -0.0137'}
+2026-01-03 12:54:02 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:54:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 409, Total: 1132
+2026-01-03 12:54:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 40
+2026-01-03 12:54:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 38 recent laps for LEC
+2026-01-03 12:54:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 6, 'tire_compound': 'HARD', 'lap_number': 40, 'race_progress': 0.7547169811320755, 'position': 6, 'track_temp': 37.3, 'air_temp': 27.3, 'degradation_rate': -0.0165, 'lap_time': 88.135}
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004867082461714745, 'stay_out_probability': 0.9951329231262207, 'confidence': 0.9951329231262207, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 6, Deg: -0.0165'}
+2026-01-03 12:54:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:54:16 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 457, Total: 1180
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 45
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for LEC
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 11, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.8490566037735849, 'position': 6, 'track_temp': 36.9, 'air_temp': 27.1, 'degradation_rate': -0.0323, 'lap_time': 88.743}
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008076498284935951, 'stay_out_probability': 0.9919235110282898, 'confidence': 0.9919235110282898, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 11, Deg: -0.0323'}
+2026-01-03 12:54:25 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:54:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 338, Total: 1061
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 50
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 48 recent laps for LEC
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 50, 'race_progress': 0.9433962264150944, 'position': 6, 'track_temp': 36.7, 'air_temp': 27.2, 'degradation_rate': -0.0703, 'lap_time': 88.36}
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.009167145006358624, 'stay_out_probability': 0.9908328652381897, 'confidence': 0.9908328652381897, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: -0.0703'}
+2026-01-03 12:54:36 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:54:38 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 417, Total: 1140
+2026-01-03 12:55:29 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:55:32 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 18
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 16 recent laps for LEC
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0157s/lap over next 20 laps, total time loss -84.734s vs baseline 89.570s.
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0157s/lap over next 20 laps, total time loss -84.734s vs baseline 89.570s.
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 1, 'tire_compound': 'MEDIUM', 'lap_number': 18, 'race_progress': 0.33962264150943394, 'position': 6, 'track_temp': 42.6, 'air_temp': 27.2, 'degradation_rate': -0.0157, 'lap_time': 89.57}
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.014710460789501667, 'stay_out_probability': 0.9852895140647888, 'confidence': 0.9852895140647888, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 1, Deg: -0.0157'}
+2026-01-03 12:55:34 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:55:36 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 419, Total: 1143
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 20
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 18 recent laps for LEC
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 3, 'tire_compound': 'MEDIUM', 'lap_number': 20, 'race_progress': 0.37735849056603776, 'position': 6, 'track_temp': 42.3, 'air_temp': 27.3, 'degradation_rate': -0.0178, 'lap_time': 90.082}
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0052101584151387215, 'stay_out_probability': 0.9947898387908936, 'confidence': 0.9947898387908936, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 3, Deg: -0.0178'}
+2026-01-03 12:55:42 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:55:44 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 441, Total: 1165
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 25
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for LEC
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 8, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.4716981132075472, 'position': 6, 'track_temp': 39.6, 'air_temp': 27.4, 'degradation_rate': -0.0146, 'lap_time': 89.185}
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.012294560670852661, 'stay_out_probability': 0.9877054691314697, 'confidence': 0.9877054691314697, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 8, Deg: -0.0146'}
+2026-01-03 12:55:52 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:55:56 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 465, Total: 1189
+2026-01-03 12:55:57 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 12:55:57 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 30
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 28 recent laps for LEC
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 13, 'tire_compound': 'MEDIUM', 'lap_number': 30, 'race_progress': 0.5660377358490566, 'position': 6, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.0126, 'lap_time': 88.56}
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.5601046085357666, 'stay_out_probability': 0.4398953914642334, 'confidence': 0.5601046085357666, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 13, Deg: -0.0126'}
+2026-01-03 12:56:05 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:56:07 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 390, Total: 1114
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 35
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 33 recent laps for LEC
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 1, 'tire_compound': 'HARD', 'lap_number': 35, 'race_progress': 0.660377358490566, 'position': 6, 'track_temp': 37.6, 'air_temp': 27.2, 'degradation_rate': -0.0137, 'lap_time': 88.536}
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004772134590893984, 'stay_out_probability': 0.9952278733253479, 'confidence': 0.9952278733253479, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 1, Deg: -0.0137'}
+2026-01-03 12:56:14 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:56:18 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 433, Total: 1156
+2026-01-03 12:56:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 40
+2026-01-03 12:56:27 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 38 recent laps for LEC
+2026-01-03 12:56:27 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 6, 'tire_compound': 'HARD', 'lap_number': 40, 'race_progress': 0.7547169811320755, 'position': 6, 'track_temp': 37.3, 'air_temp': 27.3, 'degradation_rate': -0.0165, 'lap_time': 88.135}
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004867082461714745, 'stay_out_probability': 0.9951329231262207, 'confidence': 0.9951329231262207, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 6, Deg: -0.0165'}
+2026-01-03 12:56:28 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:56:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 401, Total: 1124
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 45
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for LEC
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 11, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.8490566037735849, 'position': 6, 'track_temp': 36.9, 'air_temp': 27.1, 'degradation_rate': -0.0323, 'lap_time': 88.743}
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008076498284935951, 'stay_out_probability': 0.9919235110282898, 'confidence': 0.9919235110282898, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 11, Deg: -0.0323'}
+2026-01-03 12:56:36 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:56:38 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 404, Total: 1127
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 50
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 48 recent laps for LEC
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 50, 'race_progress': 0.9433962264150944, 'position': 6, 'track_temp': 36.7, 'air_temp': 27.2, 'degradation_rate': -0.0703, 'lap_time': 88.36}
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.009167145006358624, 'stay_out_probability': 0.9908328652381897, 'confidence': 0.9908328652381897, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: -0.0703'}
+2026-01-03 12:56:46 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 12:56:50 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 414, Total: 1137
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 13:07:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:08:02 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 490, Total: 1206
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 13:09:20 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:09:23 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 442, Total: 1158
+2026-01-03 13:09:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for VER on lap 25
+2026-01-03 13:09:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for VER
+2026-01-03 13:09:23 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0162s/lap over next 20 laps, total time loss -85.248s vs baseline 89.750s.
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P3 from race_context
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.43103448275862066, 'position': 3, 'track_temp': 31.5, 'air_temp': 26.7, 'degradation_rate': -0.0162, 'lap_time': 89.75}
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.1876360923051834, 'stay_out_probability': 0.8123639225959778, 'confidence': 0.8123639225959778, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0162'}
+2026-01-03 13:09:24 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:09:26 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 716, Completion: 341, Total: 1057
+2026-01-03 13:09:26 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 13:09:30 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 13:09:46 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2023
+2026-01-03 13:09:46 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 23 events for 2023 season
+2026-01-03 13:09:52 | [32mINFO[0m | [94mbackend.routes.sessions[0m | load_session:103 | Loading session: 2023 Japanese Grand Prix Race
+2026-01-03 13:09:52 | [32mINFO[0m | [94mdata.scripts.session_manager[0m | load_and_process_session:109 | Session 2023_Japanese_Grand_Prix_Race found in cache
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 53
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 51 recent laps for LEC
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:09:52 | [31mERROR[0m | [94mml.models.lstm_interface[0m | predict_stint_degradation:209 | Error predicting stint degradation: list index out of range
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: error
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0568s/lap
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 19, 'tire_compound': 'HARD', 'lap_number': 53, 'race_progress': 1.0, 'position': 6, 'track_temp': 36.3, 'air_temp': 27.0, 'degradation_rate': 0.056800000000001204, 'lap_time': 88.455}
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0166217889636755, 'stay_out_probability': 0.9833782315254211, 'confidence': 0.9833782315254211, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 19, Deg: 0.0568'}
+2026-01-03 13:09:52 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:09:56 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 697, Completion: 390, Total: 1087
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 24
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 22 recent laps for LEC
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0193s/lap over next 20 laps, total time loss -101.160s vs baseline 90.437s.
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0193s/lap over next 20 laps, total time loss -101.160s vs baseline 90.437s.
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 7, 'tire_compound': 'MEDIUM', 'lap_number': 24, 'race_progress': 0.4528301886792453, 'position': 6, 'track_temp': 39.6, 'air_temp': 27.5, 'degradation_rate': -0.0193, 'lap_time': 90.437}
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.019957751035690308, 'stay_out_probability': 0.9800422191619873, 'confidence': 0.9800422191619873, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 7, Deg: -0.0193'}
+2026-01-03 13:10:03 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:06 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 490, Total: 1214
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 9
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 7 recent laps for LEC
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.1022s/lap
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 9, 'tire_compound': 'MEDIUM', 'lap_number': 9, 'race_progress': 0.16981132075471697, 'position': 6, 'track_temp': 42.9, 'air_temp': 27.1, 'degradation_rate': 0.10219999999999914, 'lap_time': 89.78399999999999}
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.3968135714530945, 'stay_out_probability': 0.6031864285469055, 'confidence': 0.6031864285469055, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 9, Deg: 0.1022'}
+2026-01-03 13:10:08 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:11 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 698, Completion: 348, Total: 1046
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 10
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 8 recent laps for LEC
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: False
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:160 | DEBUG: Using manual degradation calculation: 0.0320s/lap
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM model not available or insufficient data.
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 10, 'tire_compound': 'MEDIUM', 'lap_number': 10, 'race_progress': 0.18867924528301888, 'position': 6, 'track_temp': 43.5, 'air_temp': 27.2, 'degradation_rate': 0.03199999999999932, 'lap_time': 89.913}
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.20797519385814667, 'stay_out_probability': 0.7920247912406921, 'confidence': 0.7920247912406921, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 10, Deg: 0.0320'}
+2026-01-03 13:10:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:17 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 698, Completion: 511, Total: 1209
+2026-01-03 13:10:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 15
+2026-01-03 13:10:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 13 recent laps for LEC
+2026-01-03 13:10:26 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:10:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:10:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0153s/lap over next 20 laps, total time loss -83.767s vs baseline 89.516s.
+2026-01-03 13:10:28 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0153s/lap over next 20 laps, total time loss -83.767s vs baseline 89.516s.
+2026-01-03 13:10:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 15, 'tire_compound': 'MEDIUM', 'lap_number': 15, 'race_progress': 0.2830188679245283, 'position': 6, 'track_temp': 43.1, 'air_temp': 27.2, 'degradation_rate': -0.0153, 'lap_time': 89.51599999999999}
+2026-01-03 13:10:29 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.8652845025062561, 'stay_out_probability': 0.1347154974937439, 'confidence': 0.8652845025062561, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 15, Deg: -0.0153'}
+2026-01-03 13:10:29 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:31 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 336, Total: 1060
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 20
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 18 recent laps for LEC
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0178s/lap over next 20 laps, total time loss -94.842s vs baseline 90.082s.
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 3, 'tire_compound': 'MEDIUM', 'lap_number': 20, 'race_progress': 0.37735849056603776, 'position': 6, 'track_temp': 42.3, 'air_temp': 27.3, 'degradation_rate': -0.0178, 'lap_time': 90.082}
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.0052101584151387215, 'stay_out_probability': 0.9947898387908936, 'confidence': 0.9947898387908936, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 3, Deg: -0.0178'}
+2026-01-03 13:10:39 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:42 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 437, Total: 1161
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 25
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 23 recent laps for LEC
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0146s/lap over next 20 laps, total time loss -76.344s vs baseline 89.185s.
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 8, 'tire_compound': 'MEDIUM', 'lap_number': 25, 'race_progress': 0.4716981132075472, 'position': 6, 'track_temp': 39.6, 'air_temp': 27.4, 'degradation_rate': -0.0146, 'lap_time': 89.185}
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.012294560670852661, 'stay_out_probability': 0.9877054691314697, 'confidence': 0.9877054691314697, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 8, Deg: -0.0146'}
+2026-01-03 13:10:49 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:10:51 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 480, Total: 1204
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 30
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 28 recent laps for LEC
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0126s/lap over next 20 laps, total time loss -63.717s vs baseline 88.560s.
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 13, 'tire_compound': 'MEDIUM', 'lap_number': 30, 'race_progress': 0.5660377358490566, 'position': 6, 'track_temp': 38.4, 'air_temp': 27.4, 'degradation_rate': -0.0126, 'lap_time': 88.56}
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': True, 'pit_probability': 0.5601046085357666, 'stay_out_probability': 0.4398953914642334, 'confidence': 0.5601046085357666, 'threshold_used': 0.4, 'reason': 'Tire: MEDIUM, Age: 13, Deg: -0.0126'}
+2026-01-03 13:10:59 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:11:01 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 724, Completion: 393, Total: 1117
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 35
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 33 recent laps for LEC
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0137s/lap over next 18 laps, total time loss -56.969s vs baseline 88.536s.
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 1, 'tire_compound': 'HARD', 'lap_number': 35, 'race_progress': 0.660377358490566, 'position': 6, 'track_temp': 37.6, 'air_temp': 27.2, 'degradation_rate': -0.0137, 'lap_time': 88.536}
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004772134590893984, 'stay_out_probability': 0.9952278733253479, 'confidence': 0.9952278733253479, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 1, Deg: -0.0137'}
+2026-01-03 13:11:09 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:11:13 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 513, Total: 1236
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 40
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 38 recent laps for LEC
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0165s/lap over next 13 laps, total time loss -35.863s vs baseline 88.135s.
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 6, 'tire_compound': 'HARD', 'lap_number': 40, 'race_progress': 0.7547169811320755, 'position': 6, 'track_temp': 37.3, 'air_temp': 27.3, 'degradation_rate': -0.0165, 'lap_time': 88.135}
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.004867082461714745, 'stay_out_probability': 0.9951329231262207, 'confidence': 0.9951329231262207, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 6, Deg: -0.0165'}
+2026-01-03 13:11:21 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:11:24 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 393, Total: 1116
+2026-01-03 13:11:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 45
+2026-01-03 13:11:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 43 recent laps for LEC
+2026-01-03 13:11:31 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0323s/lap over next 8 laps, total time loss -26.649s vs baseline 88.743s.
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 11, 'tire_compound': 'HARD', 'lap_number': 45, 'race_progress': 0.8490566037735849, 'position': 6, 'track_temp': 36.9, 'air_temp': 27.1, 'degradation_rate': -0.0323, 'lap_time': 88.743}
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.008076498284935951, 'stay_out_probability': 0.9919235110282898, 'confidence': 0.9919235110282898, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 11, Deg: -0.0323'}
+2026-01-03 13:11:32 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:11:33 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 445, Total: 1168
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:100 | Generating strategy for LEC on lap 50
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:122 | DEBUG: Found 48 recent laps for LEC
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:123 | DEBUG: use_lstm=True, recent_laps length check: True
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:144 | DEBUG: LSTM prediction status: success
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:155 | DEBUG: LSTM summary: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:162 | DEBUG: Final lstm_summary being sent to LLM: LSTM predicts avg degradation -0.0703s/lap over next 3 laps, total time loss -8.591s vs baseline 88.360s.
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:178 | DEBUG: Extracted position P6 from race_context
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:193 | DEBUG: XGBoost features: {'tire_age': 16, 'tire_compound': 'HARD', 'lap_number': 50, 'race_progress': 0.9433962264150944, 'position': 6, 'track_temp': 36.7, 'air_temp': 27.2, 'degradation_rate': -0.0703, 'lap_time': 88.36}
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.strategy_agent[0m | recommend_pit_strategy:204 | DEBUG: XGBoost prediction: {'should_pit': False, 'pit_probability': 0.009167145006358624, 'stay_out_probability': 0.9908328652381897, 'confidence': 0.9908328652381897, 'threshold_used': 0.4, 'reason': 'Tire: HARD, Age: 16, Deg: -0.0703'}
+2026-01-03 13:11:41 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:66 | StrategyAgent calling Groq API with llama-3.3-70b-versatile
+2026-01-03 13:11:43 | [32mINFO[0m | [94magents.base_agent[0m | call_llm:82 | Tokens used - Prompt: 723, Completion: 402, Total: 1125
+2026-01-03 13:13:29 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:37 | Fetching event schedule for 2018
+2026-01-03 13:13:29 | [32mINFO[0m | [94mdata.scripts.fetch_fastf1_data[0m | get_event_schedule:39 | Found 21 events for 2018 season
+2026-01-03 13:26:43 | [32mINFO[0m | [94mbackend.app[0m | lifespan:44 | Shutting down AI Race Engineer API...

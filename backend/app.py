@@ -14,6 +14,7 @@ from contextlib import asynccontextmanager
 
 from backend.routes import strategy, sessions, verstappen
 from backend.schemas.strategy_schema import HealthCheckResponse
+from backend.routes import strategy, sessions, verstappen, telemetry
 from config.app_config import settings
 from utils.logger import setup_logger
 
@@ -64,6 +65,7 @@ app.add_middleware(
 app.include_router(strategy.router)
 app.include_router(sessions.router)
 app.include_router(verstappen.router)
+app.include_router(telemetry.router)
 
 
 @app.get("/", tags=["Root"])

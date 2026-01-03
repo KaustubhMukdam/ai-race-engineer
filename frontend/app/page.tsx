@@ -5,6 +5,8 @@ import { Activity, Gauge, TrendingUp, AlertTriangle, Radio, Zap, PlayCircle, Pau
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts'
 import { useRaceStore } from '@/lib/store/race-store'
 import SessionSelector from '@/components/SessionSelector'
+import DriverSelector from '@/components/DriverSelector'
+import LapSlider from '@/components/LapSlider'
 
 // Generate mock tire degradation data
 const generateDegradationData = (tireAge: number, compound: string) => {
@@ -65,6 +67,9 @@ const F1Dashboard = () => {
           <div className="flex gap-2">
             {/* Session Selector */}
             <SessionSelector />
+
+            {/* Driver Selector */}
+            <DriverSelector />
 
             {/* Live Mode Toggle */}
             <button
@@ -184,6 +189,11 @@ const F1Dashboard = () => {
                 <span className="text-blue-300 font-semibold">{raceData.airTemp}°C</span>
               </div>
             </div>
+          </div>
+
+          {/* Lap Slider */}
+          <div className="mt-6">
+            <LapSlider />
           </div>
         </div>
 
