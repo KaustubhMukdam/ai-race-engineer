@@ -1,0 +1,546 @@
+{
+  "VER": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 16,
+      "laps_completed": 16,
+      "avg_lap_time": 100.2055
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 17,
+      "end_lap": 37,
+      "laps_completed": 21,
+      "avg_lap_time": 98.771619
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 38,
+      "end_lap": 53,
+      "laps_completed": 16,
+      "avg_lap_time": 97.259937
+    }
+  ],
+  "PIA": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 13,
+      "laps_completed": 13,
+      "avg_lap_time": 99.332
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 14,
+      "end_lap": 35,
+      "laps_completed": 22,
+      "avg_lap_time": 100.32359
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 36,
+      "end_lap": 53,
+      "laps_completed": 18,
+      "avg_lap_time": 98.158222
+    }
+  ],
+  "NOR": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 17,
+      "laps_completed": 17,
+      "avg_lap_time": 100.839692
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 18,
+      "end_lap": 36,
+      "laps_completed": 19,
+      "avg_lap_time": 99.075473
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 37,
+      "end_lap": 53,
+      "laps_completed": 17,
+      "avg_lap_time": 97.535941
+    }
+  ],
+  "LEC": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 17,
+      "laps_completed": 17,
+      "avg_lap_time": 100.964846
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 18,
+      "end_lap": 34,
+      "laps_completed": 17,
+      "avg_lap_time": 99.693176
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 35,
+      "end_lap": 53,
+      "laps_completed": 19,
+      "avg_lap_time": 98.297263
+    }
+  ],
+  "PER": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 2,
+      "laps_completed": 2,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 3,
+      "end_lap": 12,
+      "laps_completed": 10,
+      "avg_lap_time": 102.966625
+    },
+    {
+      "stint_number": 3,
+      "compound": "SOFT",
+      "start_lap": 13,
+      "end_lap": 13,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 4,
+      "compound": "SOFT",
+      "start_lap": 14,
+      "end_lap": 14,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 5,
+      "compound": "SOFT",
+      "start_lap": 15,
+      "end_lap": 15,
+      "laps_completed": 1,
+      "avg_lap_time": 132.535
+    }
+  ],
+  "SAI": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 18,
+      "laps_completed": 18,
+      "avg_lap_time": 100.918142
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 19,
+      "end_lap": 38,
+      "laps_completed": 20,
+      "avg_lap_time": 99.5593
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 39,
+      "end_lap": 53,
+      "laps_completed": 15,
+      "avg_lap_time": 98.448
+    }
+  ],
+  "HAM": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 16,
+      "laps_completed": 16,
+      "avg_lap_time": 101.40775
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 17,
+      "end_lap": 34,
+      "laps_completed": 18,
+      "avg_lap_time": 99.688
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 35,
+      "end_lap": 53,
+      "laps_completed": 19,
+      "avg_lap_time": 98.295736
+    }
+  ],
+  "RUS": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 24,
+      "laps_completed": 24,
+      "avg_lap_time": 100.61545
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 25,
+      "end_lap": 53,
+      "laps_completed": 29,
+      "avg_lap_time": 99.113965
+    }
+  ],
+  "TSU": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 9,
+      "laps_completed": 9,
+      "avg_lap_time": 100.5606
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 10,
+      "end_lap": 30,
+      "laps_completed": 21,
+      "avg_lap_time": 102.12619
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 31,
+      "end_lap": 52,
+      "laps_completed": 22,
+      "avg_lap_time": 99.295454
+    }
+  ],
+  "ALO": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 11,
+      "laps_completed": 11,
+      "avg_lap_time": 99.883571
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 12,
+      "end_lap": 25,
+      "laps_completed": 14,
+      "avg_lap_time": 102.6125
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 26,
+      "end_lap": 53,
+      "laps_completed": 28,
+      "avg_lap_time": 98.903321
+    }
+  ],
+  "LAW": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 10,
+      "laps_completed": 10,
+      "avg_lap_time": 100.3055
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 11,
+      "end_lap": 25,
+      "laps_completed": 15,
+      "avg_lap_time": 103.0108
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 26,
+      "end_lap": 52,
+      "laps_completed": 27,
+      "avg_lap_time": 99.428185
+    }
+  ],
+  "GAS": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 18,
+      "laps_completed": 18,
+      "avg_lap_time": 101.788357
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 19,
+      "end_lap": 34,
+      "laps_completed": 16,
+      "avg_lap_time": 100.191312
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 35,
+      "end_lap": 53,
+      "laps_completed": 19,
+      "avg_lap_time": 99.018842
+    }
+  ],
+  "ALB": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 1,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 2,
+      "end_lap": 13,
+      "laps_completed": 12,
+      "avg_lap_time": 102.257666
+    },
+    {
+      "stint_number": 3,
+      "compound": "SOFT",
+      "start_lap": 14,
+      "end_lap": 26,
+      "laps_completed": 13,
+      "avg_lap_time": 104.351692
+    }
+  ],
+  "OCO": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 1,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 2,
+      "end_lap": 28,
+      "laps_completed": 27,
+      "avg_lap_time": 103.04112
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 29,
+      "end_lap": 53,
+      "laps_completed": 25,
+      "avg_lap_time": 98.92532
+    }
+  ],
+  "MAG": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 12,
+      "laps_completed": 12,
+      "avg_lap_time": 103.384
+    },
+    {
+      "stint_number": 2,
+      "compound": "HARD",
+      "start_lap": 13,
+      "end_lap": 31,
+      "laps_completed": 19,
+      "avg_lap_time": 101.899631
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 32,
+      "end_lap": 52,
+      "laps_completed": 21,
+      "avg_lap_time": 99.626714
+    }
+  ],
+  "BOT": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 1,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "SOFT",
+      "start_lap": 2,
+      "end_lap": 6,
+      "laps_completed": 5,
+      "avg_lap_time": 123.407333
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 7,
+      "end_lap": 7,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    }
+  ],
+  "STR": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 14,
+      "laps_completed": 14,
+      "avg_lap_time": 102.3015
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 15,
+      "end_lap": 20,
+      "laps_completed": 6,
+      "avg_lap_time": 103.203333
+    }
+  ],
+  "HUL": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 8,
+      "laps_completed": 8,
+      "avg_lap_time": 100.844
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 9,
+      "end_lap": 21,
+      "laps_completed": 13,
+      "avg_lap_time": 103.17223
+    },
+    {
+      "stint_number": 3,
+      "compound": "HARD",
+      "start_lap": 22,
+      "end_lap": 37,
+      "laps_completed": 16,
+      "avg_lap_time": 100.261437
+    },
+    {
+      "stint_number": 4,
+      "compound": "MEDIUM",
+      "start_lap": 38,
+      "end_lap": 52,
+      "laps_completed": 15,
+      "avg_lap_time": 99.190333
+    }
+  ],
+  "ZHO": [
+    {
+      "stint_number": 1,
+      "compound": "SOFT",
+      "start_lap": 1,
+      "end_lap": 1,
+      "laps_completed": 1,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "SOFT",
+      "start_lap": 2,
+      "end_lap": 10,
+      "laps_completed": 9,
+      "avg_lap_time": 101.204833
+    },
+    {
+      "stint_number": 3,
+      "compound": "SOFT",
+      "start_lap": 11,
+      "end_lap": 29,
+      "laps_completed": 19,
+      "avg_lap_time": 102.197631
+    },
+    {
+      "stint_number": 4,
+      "compound": "HARD",
+      "start_lap": 30,
+      "end_lap": 52,
+      "laps_completed": 23,
+      "avg_lap_time": 99.225782
+    }
+  ],
+  "SAR": [
+    {
+      "stint_number": 1,
+      "compound": "MEDIUM",
+      "start_lap": 1,
+      "end_lap": 2,
+      "laps_completed": 2,
+      "avg_lap_time": null
+    },
+    {
+      "stint_number": 2,
+      "compound": "MEDIUM",
+      "start_lap": 3,
+      "end_lap": 5,
+      "laps_completed": 3,
+      "avg_lap_time": 104.961
+    },
+    {
+      "stint_number": 3,
+      "compound": "MEDIUM",
+      "start_lap": 6,
+      "end_lap": 21,
+      "laps_completed": 16,
+      "avg_lap_time": 104.507187
+    },
+    {
+      "stint_number": 4,
+      "compound": "HARD",
+      "start_lap": 22,
+      "end_lap": 22,
+      "laps_completed": 1,
+      "avg_lap_time": 137.039
+    }
+  ]
+}

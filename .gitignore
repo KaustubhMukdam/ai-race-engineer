@@ -1,10 +1,6 @@
 venv
 __pycache__
-docs
 .env
-data/processed
-data/raw/fastf1_cache
-ml/saved_models
 austria.py
 bahrain.py
 compare_strategies.py
@@ -13,7 +9,7 @@ gp.py
 model_testing.py
 monaco.py
 test_lstm_strategy.py
-ml/datasets
 tests/
 node_modules
 .idea
+docs

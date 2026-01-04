@@ -1,0 +1,92 @@
+{
+  "2024_Monaco_Race": {
+    "year": 2024,
+    "event": "Monaco",
+    "session": "Race",
+    "processed_path": "data\\processed\\2024_Monaco_Race_processed_processed",
+    "processed_date": "2025-12-29T16:49:32.297275",
+    "total_laps": 1203,
+    "drivers": 16
+  },
+  "2025_Japanese_Grand_Prix_Race": {
+    "year": 2025,
+    "event": "Japanese Grand Prix",
+    "session": "Race",
+    "processed_path": "data\\processed\\2025_Japanese_Grand_Prix_Race_processed_processed",
+    "processed_date": "2025-12-29T17:44:54.047569",
+    "total_laps": 1038,
+    "drivers": 20
+  },
+  "2024_Abu_Dhabi_Grand_Prix_Race": {
+    "year": 2024,
+    "event": "Abu Dhabi Grand Prix",
+    "session": "Race",
+    "processed_path": "data\\processed\\2024_Abu_Dhabi_Grand_Prix_Race_processed",
+    "processed_date": "2025-12-29T18:04:14.802582",
+    "total_laps": 1003,
+    "drivers": 19
+  },
+  "2024_Japanese_Grand_Prix_Race": {
+    "year": 2024,
+    "event": "Japanese Grand Prix",
+    "session": "Race",
+    "processed_path": "data\\processed\\2024_Japanese_Grand_Prix_Race_processed",
+    "processed_date": "2025-12-29T19:47:37.515270",
+    "total_laps": 846,
+    "drivers": 18
+  },
+  "2024_Monaco_Grand_Prix_Race": {
+    "year": 2024,
+    "event": "Monaco Grand Prix",
+    "session": "Race",
+    "processed_path": "data\\processed\\2024_Monaco_Grand_Prix_Race_processed",
+    "processed_date": "2025-12-29T21:48:34.316978",
+    "total_laps": 1203,
+    "drivers": 16
+  },
+  "2023_Miami_Grand_Prix_Race": {
+    "year": 2023,
+    "event": "Miami Grand Prix",
+    "session": "Race",
+    "processed_path": "data\\processed\\2023_Miami_Grand_Prix_Race_processed",
+    "processed_date": "2025-12-29T21:52:12.967218",
+    "total_laps": 1117,
+    "drivers": 20
+  },
+  "2024_Abu_Dhabi_Race": {
+    "year": 2024,
+    "event": "Abu Dhabi",
+    "session": "Race",
+    "processed_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\data\\processed\\2024_Abu_Dhabi_Race_processed",
+    "processed_date": "2025-12-30T14:32:07.205063",
+    "total_laps": 1003,
+    "drivers": 19
+  },
+  "2023_Japanese_Grand_Prix_Race": {
+    "year": 2023,
+    "event": "Japanese Grand Prix",
+    "session": "Race",
+    "processed_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\data\\processed\\2023_Japanese_Grand_Prix_Race_processed",
+    "processed_date": "2026-01-03T12:09:13.858204",
+    "total_laps": 785,
+    "drivers": 20
+  },
+  "2023_Monaco_Grand_Prix_Race": {
+    "year": 2023,
+    "event": "Monaco Grand Prix",
+    "session": "Race",
+    "processed_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\data\\processed\\2023_Monaco_Grand_Prix_Race_processed",
+    "processed_date": "2026-01-03T20:33:39.408837",
+    "total_laps": 1479,
+    "drivers": 20
+  },
+  "2023_Abu_Dhabi_Grand_Prix_Race": {
+    "year": 2023,
+    "event": "Abu Dhabi Grand Prix",
+    "session": "Race",
+    "processed_path": "D:\\Programming\\portfolio_projects\\ai-race-engineer\\data\\processed\\2023_Abu_Dhabi_Grand_Prix_Race_processed",
+    "processed_date": "2026-01-03T20:47:03.266455",
+    "total_laps": 1137,
+    "drivers": 20
+  }
+}

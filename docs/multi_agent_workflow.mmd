@@ -1,0 +1,22 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	analyze_strategy(analyze_strategy)
+	analyze_telemetry(analyze_telemetry)
+	analyze_competitors(analyze_competitors)
+	analyze_race_control(analyze_race_control)
+	make_decision(make_decision)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> analyze_strategy;
+	analyze_competitors --> analyze_race_control;
+	analyze_race_control --> make_decision;
+	analyze_strategy --> analyze_telemetry;
+	analyze_telemetry --> analyze_competitors;
+	make_decision --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
